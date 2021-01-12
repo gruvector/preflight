@@ -1,5 +1,11 @@
 {
+  "name": "@upleveled/preflight",
   "version": "0.1.0",
+  "author": "UpLeveled (https://github.com/upleveled)",
+  "contributors": [
+    "José Fernando Höwer Barbosa <josehowerupn@gmail.com>",
+    "Karl Horky <karl.horky@gmail.com>"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -31,12 +37,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@upleveled/preflight",
-  "author": "UpLeveled (https://github.com/upleveled)",
-  "contributors": [
-    "José Fernando Höwer Barbosa <josehowerupn@gmail.com>",
-    "Karl Horky <karl.horky@gmail.com>"
-  ],
   "module": "dist/preflight.esm.js",
   "size-limit": [
     {
