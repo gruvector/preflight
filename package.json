@@ -20,7 +20,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint src test",
+    "lint": "tsdx lint src test --max-warnings 0",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
