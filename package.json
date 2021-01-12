@@ -74,5 +74,8 @@
   },
   "resolutions": {
     "eslint": "7.5.0"
+  },
+  "dependencies": {
+    "listr2": "3.2.3"
   }
 }
