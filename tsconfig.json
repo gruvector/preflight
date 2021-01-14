@@ -1,9 +1,11 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": ["src", "test", "types"],
+  "include": ["test", "types", "src"],
+  "exclude": [".eslintrc.cjs", "dist"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
+    "target": "es2017",
     "importHelpers": true,
     // output .d.ts declaration files for consumers
     "declaration": true,
@@ -16,9 +18,6 @@
     // linter checks for common issues
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    // noUnused* overlap with @typescript-eslint/no-unused-vars, can disable if duplicative
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     // use Node's module resolution algorithm, instead of the legacy TS one
     "moduleResolution": "node",
     // transpile JSX to React.createElement

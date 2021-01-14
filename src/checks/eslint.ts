@@ -1,14 +1,11 @@
-import { ListrTaskWrapper } from 'listr2';
-import { Context } from '..';
+import execa from 'execa';
 
-export const title = 'some title here';
+export const title = 'ESLint';
 
-// TODO @jose: Come up with a type for this function and put it in the `types` folder
-export default async function eslintCheck(
-  ctx: Context,
-  task: ListrTaskWrapper<any, any>
-) {
-  if (/* something crazy */ true) {
-    task.skip('whaaaat skipping.....');
+export default async function eslintCheck() {
+  try {
+    await execa.command('yarn eslint . --max-warnings 0');
+  } catch {
+    throw new Error('ESLint error message');
   }
 }
