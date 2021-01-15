@@ -51,7 +51,7 @@
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-plugin-testing-library": "3.10.1",
-    "eslint-plugin-unicorn": "25.0.1",
+    "eslint-plugin-unicorn": "26.0.1",
     "size-limit": "4.9.1",
     "tsdx": "0.14.1",
     "tslib": "2.1.0",
