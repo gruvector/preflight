@@ -7,11 +7,15 @@
     "Karl Horky <karl.horky@gmail.com>"
   ],
   "license": "MIT",
+  "type": "module",
   "main": "dist/preflight.esm.js",
   "module": "dist/preflight.esm.js",
-  "type": "module",
   "typings": "dist/index.d.ts",
+  "bin": {
+    "preflight": "bin/preflight.js"
+  },
   "files": [
+    "bin",
     "dist",
     "src"
   ],
