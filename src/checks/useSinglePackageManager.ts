@@ -1,17 +1,15 @@
 import execa from 'execa';
+import commandExample from '../commandExample';
 
 export const title = 'Use single package manager';
 
 export default async function useSinglePackageManager() {
-  // TODO: In the future, consider allowing students to use ONLY npm too
-  try {
-    const response = await execa.command('git ls-files package-lock.json');
+  const { stdout } = await execa.command('git ls-files package-lock.json');
 
-    if (response.stdout) {
-      // TODO: Add commands for removing the file
-      throw Error(`npm package-lock.json committed to Git`);
-    }
-  } catch (error) {
-    throw new Error(error);
+  if (stdout !== '') {
+    throw Error(`package-lock.json file committed to Git. Remove it with:
+      ${commandExample('git rm --cached <filename>')}
+      After you've removed it, you can delete the file with:
+      ${commandExample('rm <filename>')}`);
   }
 }
