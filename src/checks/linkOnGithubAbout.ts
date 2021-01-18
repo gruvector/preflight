@@ -2,7 +2,7 @@ import cheerio from 'cheerio';
 import execa from 'execa';
 import fetch from 'node-fetch';
 
-export const title = 'Github Repository contains link on About Section';
+export const title = 'GitHub Repository contains link on About Section';
 
 export default async function linkOnGithubAbout() {
   const { stdout: repoUrlStdout } = await execa.command(
