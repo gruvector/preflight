@@ -3,6 +3,7 @@ import { Listr } from 'listr2';
 import { URL } from 'url';
 import * as allChangesCommittedToGit from './checks/allChangesCommittedToGit';
 import * as eslint from './checks/eslint';
+import * as linkOnGithubAbout from './checks/linkOnGithubAbout';
 import * as nodeModulesIgnoredFromGit from './checks/nodeModulesIgnoredFromGit';
 import * as noExtraneousFilesCommittedToGit from './checks/noExtraneousFilesCommittedToGit';
 import * as noSecretsCommittedToGit from './checks/noSecretsCommittedToGit';
@@ -22,6 +23,7 @@ const listrTasks = [
   nodeModulesIgnoredFromGit,
   noExtraneousFilesCommittedToGit,
   noSecretsCommittedToGit,
+  linkOnGithubAbout,
 
   // Package Managers
   useSinglePackageManager,
