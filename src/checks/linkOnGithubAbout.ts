@@ -2,7 +2,7 @@ import cheerio from 'cheerio';
 import execa from 'execa';
 import fetch from 'node-fetch';
 
-export const title = 'GitHub Repository contains link on About Section';
+export const title = 'GitHub repo has deployed project link under About';
 
 export default async function linkOnGithubAbout() {
   const { stdout } = await execa.command('git remote get-url origin');
@@ -14,6 +14,7 @@ export default async function linkOnGithubAbout() {
   const html = await (await fetch(repoUrl)).text();
 
   const $ = cheerio.load(html);
+
   const linkElement = $('h2')
     .filter(function(this: Node) {
       return (
@@ -31,9 +32,8 @@ export default async function linkOnGithubAbout() {
     .children('a[href]');
 
   if (linkElement.length === 0) {
-    throw new Error(`Project link not found on about section:
-    - Make sure you add the link to the repo on the About section.
-    - You will see an link 🔗 icon before the url if is the right place.
-    `);
+    throw new Error(
+      `Deployed project link not found in About section on ${repoUrl}. Click on the cog symbol to the right of the About heading and paste the Repl.it / Netlify / Heroku link in the Website box.`,
+    );
   }
 }
