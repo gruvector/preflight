@@ -5,11 +5,13 @@ import fetch from 'node-fetch';
 export const title = 'GitHub Repository contains link on About Section';
 
 export default async function linkOnGithubAbout() {
-  const { stdout: repoUrlStdout } = await execa.command(
-    'git remote get-url origin',
-  );
+  const { stdout } = await execa.command('git remote get-url origin');
 
-  const html = await (await fetch(repoUrlStdout)).text();
+  const repoUrl = stdout
+    .replace('git@github.com:', 'https://github.com/')
+    .replace('.git', '');
+
+  const html = await (await fetch(repoUrl)).text();
 
   const $ = cheerio.load(html);
   const linkElement = $('h2')
