@@ -20,8 +20,10 @@ export default async function linkOnGithubAbout() {
           .trim() === 'About'
       );
     })
-    .next()
-    .next()
+    .nextAll('div')
+    .filter(function(this: Node) {
+      return $(this).children('.octicon.octicon-link').length > 0;
+    })
     .children('.octicon.octicon-link')
     .next()
     .children('a[href]');
