@@ -23,12 +23,14 @@ const listrTasks = [
   nodeModulesIgnoredFromGit,
   noExtraneousFilesCommittedToGit,
   noSecretsCommittedToGit,
-  linkOnGithubAbout,
 
   // Package Managers
   useSinglePackageManager,
 
   // ======= Async Tasks =======
+  // GitHub
+  linkOnGithubAbout,
+
   // Linting
   eslint,
 
