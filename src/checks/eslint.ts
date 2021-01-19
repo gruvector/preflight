@@ -7,6 +7,14 @@ export default async function eslintCheck() {
   try {
     await execa.command('yarn eslint . --max-warnings 0  --format compact');
   } catch (error) {
+    const { stdout } = error;
+    const lines = stdout.split('\n');
+
+    // If no ESLint problems detected, throw the error
+    if (!/^\d+ problems?$/.test(lines[lines.length - 2])) {
+      throw new Error(error.stderr);
+    }
+
     throw new Error(
       `Errors found in files:
         ${error.stdout
