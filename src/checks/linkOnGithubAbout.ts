@@ -1,6 +1,7 @@
 import cheerio from 'cheerio';
 import execa from 'execa';
 import fetch from 'node-fetch';
+import wordWrap from '../wordWrap';
 
 export const title = 'GitHub repo has deployed project link under About';
 
@@ -33,7 +34,9 @@ export default async function linkOnGithubAbout() {
 
   if (linkElement.length === 0) {
     throw new Error(
-      `Deployed project link not found in About section on ${repoUrl}. Click on the cog symbol to the right of the About heading and paste the Repl.it / Netlify / Heroku link in the Website box.`,
+      wordWrap(
+        `Deployed project link not found in About section on ${repoUrl}. Click on the cog symbol to the right of the About heading and paste the Repl.it / Netlify / Heroku link in the Website box.`,
+      ),
     );
   }
 }

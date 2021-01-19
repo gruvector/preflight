@@ -1,6 +1,6 @@
 import execa from 'execa';
 import commandExample from '../commandExample';
-import wordWrap from '../throwError';
+import wordWrap from '../wordWrap';
 
 export const title = 'No extraneous files committed to Git';
 
