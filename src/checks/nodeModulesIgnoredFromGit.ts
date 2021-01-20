@@ -1,7 +1,7 @@
 import execa from 'execa';
 import { promises as fs } from 'fs';
-import os from 'os';
 import commandExample from '../commandExample';
+import normalizeNewline from '../normalizeNewline';
 
 export const title = 'node_modules/ folder ignored in Git';
 
@@ -25,8 +25,10 @@ export default async function nodeModulesIgnoredFromGit() {
     throw new Error('.gitignore file not found');
   }
 
-  const nodeModulesInGitignore = (await fs.readFile('./.gitignore', 'utf8'))
-    .split(os.EOL)
+  const nodeModulesInGitignore = normalizeNewline(
+    await fs.readFile('./.gitignore', 'utf8'),
+  )
+    .split('\n')
     .reduce((found, line) => found || /^node_modules\/?$/.test(line), false);
 
   if (!nodeModulesInGitignore) {
