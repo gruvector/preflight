@@ -1,5 +1,6 @@
 import execa from 'execa';
 import { promises as fs } from 'fs';
+import semver from 'semver';
 import { URL } from 'url';
 import commandExample from '../commandExample';
 
@@ -14,7 +15,7 @@ export default async function preflightIsLatestVersion() {
     await fs.readFile(new URL('../package.json', import.meta.url), 'utf-8'),
   ).version;
 
-  if (remoteVersion !== localVersion) {
+  if (semver.gt(remoteVersion, localVersion)) {
     throw Error(
       `Your current version of Preflight (${localVersion}) is out of date. The latest version is ${remoteVersion}. Upgrade with:
       ${commandExample('yarn global add @upleveled/preflight')}`,
