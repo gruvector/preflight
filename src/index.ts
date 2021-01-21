@@ -7,6 +7,7 @@ import * as linkOnGithubAbout from './checks/linkOnGithubAbout';
 import * as nodeModulesIgnoredFromGit from './checks/nodeModulesIgnoredFromGit';
 import * as noExtraneousFilesCommittedToGit from './checks/noExtraneousFilesCommittedToGit';
 import * as noSecretsCommittedToGit from './checks/noSecretsCommittedToGit';
+import * as noUnusedDependencies from './checks/noUnusedDependencies';
 import * as preflightIsLatestVersion from './checks/preflightIsLatestVersion';
 import * as useSinglePackageManager from './checks/useSinglePackageManager';
 
@@ -28,6 +29,9 @@ const listrTasks = [
   useSinglePackageManager,
 
   // ======= Async Tasks =======
+  // Dependencies
+  noUnusedDependencies,
+
   // GitHub
   linkOnGithubAbout,
 
