@@ -23,6 +23,8 @@ export default async function noUnusedDependencies() {
       `${preflightBinPath}/depcheck --ignores="${ignoredPackagePatterns}"`,
     );
   } catch (error) {
+    if (!error.stdout.startsWith('Unused dependencies')) throw error;
+
     throw new Error(
       wordWrap(
         `Unused dependencies found:
