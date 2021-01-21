@@ -1,5 +1,6 @@
 import execa from 'execa';
 import commandExample from '../commandExample';
+import preflightBinPath from '../preflightBinPath';
 import wordWrap from '../wordWrap';
 
 export const title = 'No unused dependencies';
@@ -18,7 +19,9 @@ export default async function noUnusedDependencies() {
   ].join(',');
 
   try {
-    await execa.command(`yarn depcheck --ignores="${ignoredPackagePatterns}"`);
+    await execa.command(
+      `${preflightBinPath}/depcheck --ignores="${ignoredPackagePatterns}"`,
+    );
   } catch (error) {
     throw Error(
       wordWrap(
