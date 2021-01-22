@@ -4,7 +4,5 @@ import chalk from 'chalk';
 const emptyBrailleCharacter = '‎';
 
 export default function commandExample(command: string) {
-  return `${emptyBrailleCharacter}
-  ${emptyBrailleCharacter}  ${chalk.dim('$')} ${command}
-  ${emptyBrailleCharacter}`;
+  return `${emptyBrailleCharacter}  ${chalk.dim('$')} ${command}`;
 }

@@ -16,9 +16,11 @@ export default async function preflightIsLatestVersion() {
   ).version;
 
   if (semver.gt(remoteVersion, localVersion)) {
-    throw Error(
+    throw new Error(
       `Your current version of Preflight (${localVersion}) is out of date. The latest version is ${remoteVersion}. Upgrade with:
-      ${commandExample('yarn global add @upleveled/preflight')}`,
+
+        ${commandExample('yarn global add @upleveled/preflight')}
+      `,
     );
   }
 }

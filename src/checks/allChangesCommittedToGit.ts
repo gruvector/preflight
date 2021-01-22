@@ -6,7 +6,7 @@ export default async function allChangesCommittedToGit() {
   const { stdout } = await execa.command('git status --porcelain');
 
   if (stdout !== '') {
-    throw Error(
+    throw new Error(
       `Some changes have not been committed to Git:
         ${stdout}
       `,

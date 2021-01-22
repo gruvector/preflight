@@ -6,22 +6,18 @@ import normalizeNewline from '../normalizeNewline';
 export const title = 'node_modules/ folder ignored in Git';
 
 export default async function nodeModulesIgnoredFromGit() {
-  const { stdout: nodeModulesStdout } = await execa.command(
-    'git ls-files node_modules/',
-  );
-
-  if (nodeModulesStdout !== '') {
+  if ((await execa.command('git ls-files node_modules/')).stdout !== '') {
     throw new Error(
       `node_modules/ folder committed to Git. Remove it using:
-        ${commandExample('git rm -r --cached node_modules')}`,
+
+        ${commandExample('git rm -r --cached node_modules')}
+      `,
     );
   }
 
-  const { stdout: gitignoreStdout } = await execa.command(
-    'git ls-files .gitignore',
-  );
-
-  if (gitignoreStdout !== '.gitignore') {
+  if (
+    (await execa.command('git ls-files .gitignore')).stdout !== '.gitignore'
+  ) {
     throw new Error('.gitignore file not found');
   }
 

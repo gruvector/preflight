@@ -47,6 +47,10 @@ const listrTasks = [
 
 await new Listr(listrTasks, {
   exitOnError: false,
-  rendererOptions: { collapseErrors: false },
+  rendererOptions: {
+    collapseErrors: false,
+    removeEmptyLines: false,
+    formatOutput: 'wrap',
+  },
   concurrent: 5,
 }).run();
