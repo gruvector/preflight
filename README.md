@@ -2,7 +2,7 @@
 
 A command line tool to check your UpLeveled projects before you submit
 
-<img src="screenshot.png" alt="A command line tool showing various passing tests that have run against a software project" />
+<img src="screenshot.png" alt="A command line tool showing various passing tests that have run against a software project" width="390" />
 
 ## Install
 
