@@ -1,14 +1,12 @@
 import execa from 'execa';
 import pMap from 'p-map';
 
+const fixturesTempDir = '__tests__/fixtures/__temp';
+
 async function cloneRepoToFixtures(repoPath: string, fixtureDirName: string) {
   return execa.command(
-    `git clone --depth 1 --single-branch --branch=main https://github.com/${repoPath}.git __tests__/fixtures/${fixtureDirName}`,
+    `git clone --depth 1 --single-branch --branch=main https://github.com/${repoPath}.git ${fixturesTempDir}/${fixtureDirName}`,
   );
-}
-
-async function removeFixtureDir(fixtureDirName: string) {
-  return execa.command(`rm -rf ./__tests__/fixtures/${fixtureDirName}`);
 }
 
 const repoPathsToFixtureDirNames = {
@@ -27,7 +25,7 @@ beforeAll(
       Object.values(repoPathsToFixtureDirNames),
       async dirName =>
         execa.command('yarn --frozen-lockfile', {
-          cwd: `__tests__/fixtures/${dirName}`,
+          cwd: `${fixturesTempDir}/${dirName}`,
         }),
       { concurrency: 1 },
     );
@@ -38,9 +36,12 @@ beforeAll(
 
 describe('Preflight', () => {
   it('passes in the react-passing test project', async () => {
-    const { stdout, stderr } = await execa.command(`node ../../..`, {
-      cwd: '__tests__/fixtures/react-passing',
-    });
+    const { stdout, stderr } = await execa.command(
+      `../../../../bin/preflight.js`,
+      {
+        cwd: `${fixturesTempDir}/react-passing`,
+      },
+    );
 
     const stdoutSortedWithoutVersionNumber = stdout
       .replace(/(UpLeveled Preflight) v\d+\.\d+\.\d+/, '$1')
@@ -57,9 +58,5 @@ describe('Preflight', () => {
 });
 
 afterAll(async () => {
-  await pMap(
-    Object.values(repoPathsToFixtureDirNames),
-    async dirName => removeFixtureDir(dirName),
-    { concurrency: 4 },
-  );
+  await execa.command(`rm -rf ./${fixturesTempDir}/`);
 });
