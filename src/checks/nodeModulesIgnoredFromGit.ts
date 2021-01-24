@@ -25,7 +25,7 @@ export default async function nodeModulesIgnoredFromGit() {
     await fs.readFile('./.gitignore', 'utf8'),
   )
     .split('\n')
-    .reduce((found, line) => found || /^node_modules\/?$/.test(line), false);
+    .reduce((found, line) => found || /^\/?node_modules\/?$/.test(line), false);
 
   if (!nodeModulesInGitignore) {
     throw new Error('node_modules not found in .gitignore');
