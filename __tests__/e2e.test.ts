@@ -54,7 +54,7 @@ describe('Preflight', () => {
 
     expect(stdoutSortedWithoutVersionNumber).toMatchSnapshot();
     expect(stderr).toMatchSnapshot();
-  });
+  }, 30000);
 });
 
 afterAll(async () => {
