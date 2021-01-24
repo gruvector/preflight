@@ -42,12 +42,16 @@ describe('Preflight', () => {
       cwd: '__tests__/fixtures/react-passing',
     });
 
-    const stdoutWithoutVersionNumber = stdout.replace(
-      /(UpLeveled Preflight) v\d+\.\d+\.\d+/,
-      '$1',
-    );
+    const stdoutSortedWithoutVersionNumber = stdout
+      .replace(/(UpLeveled Preflight) v\d+\.\d+\.\d+/, '$1')
+      .split('\n')
+      .sort((a: string, b: string) => {
+        if (b.includes('UpLeveled Preflight')) return 1;
+        return a < b ? -1 : 1;
+      })
+      .join('\n');
 
-    expect(stdoutWithoutVersionNumber).toMatchSnapshot();
+    expect(stdoutSortedWithoutVersionNumber).toMatchSnapshot();
     expect(stderr).toMatchSnapshot();
   });
 });
