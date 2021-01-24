@@ -1,7 +1,7 @@
 [
   {
     "path": "dist/preflight.esm.js",
-    "limit": "15 KB",
+    "limit": "30 KB",
     "webpack": false
   }
 ]
