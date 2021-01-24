@@ -6,14 +6,19 @@ export const title = 'No unused dependencies';
 
 export default async function noUnusedDependencies() {
   const ignoredPackagePatterns = [
-    '@size-limit/*',
+    // Unused dependency detected in create-react-app
+    '@testing-library/user-event',
+
+    // ESLint configuration
     '@typescript-eslint/*',
-    '@upleveled/*',
-    'babel-*',
-    'depcheck',
+    '@upleveled/eslint-config-upleveled',
+    'babel-eslint',
     'eslint',
-    'eslint-*',
-    'tslib',
+    'eslint-config-react-app',
+    'eslint-import-resolver-typescript',
+    'eslint-plugin-*',
+
+    // TypeScript
     'typescript',
   ].join(',');
 
