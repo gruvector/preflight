@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Preflight passes in the react-passing test project 1`] = `
+"🚀 UpLeveled Preflight
+[STARTED] All changes committed to Git
+[STARTED] node_modules/ folder ignored in Git
+[STARTED] No extraneous files committed to Git
+[STARTED] No secrets committed to Git
+[STARTED] Use single package manager
+[SUCCESS] All changes committed to Git
+[STARTED] No unused dependencies
+[SUCCESS] No extraneous files committed to Git
+[STARTED] GitHub repo has deployed project link under About
+[SUCCESS] No secrets committed to Git
+[STARTED] ESLint
+[SUCCESS] Use single package manager
+[STARTED] Preflight is latest version
+[SUCCESS] node_modules/ folder ignored in Git
+[SUCCESS] GitHub repo has deployed project link under About
+[SUCCESS] Preflight is latest version
+[SUCCESS] No unused dependencies
+[SUCCESS] ESLint"
+`;
+
+exports[`Preflight passes in the react-passing test project 2`] = `""`;
