@@ -27,6 +27,7 @@
     "start": "tsdx watch --format esm",
     "build": "tsdx build --format esm",
     "test": "tsdx test",
+    "test-local": "rm -rf ./__tests__/fixtures/__temp && yarn test",
     "lint": "tsdx lint src __tests__ --max-warnings 0",
     "prepare": "yarn build",
     "size": "size-limit",

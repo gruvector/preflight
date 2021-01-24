@@ -56,7 +56,3 @@ describe('Preflight', () => {
     expect(stderr).toMatchSnapshot();
   }, 30000);
 });
-
-afterAll(async () => {
-  await execa.command(`rm -rf ./${fixturesTempDir}/`);
-});
