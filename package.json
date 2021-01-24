@@ -27,7 +27,7 @@
     "start": "tsdx watch --format esm",
     "build": "tsdx build --format esm",
     "test": "tsdx test",
-    "lint": "tsdx lint src test --max-warnings 0",
+    "lint": "tsdx lint src __tests__ --max-warnings 0",
     "prepare": "yarn build",
     "size": "size-limit",
     "analyze": "size-limit --why"
