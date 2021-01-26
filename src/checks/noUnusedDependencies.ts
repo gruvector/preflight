@@ -20,6 +20,7 @@ export default async function noUnusedDependencies() {
 
     // TypeScript
     'typescript',
+    '@types/*',
   ].join(',');
 
   try {
