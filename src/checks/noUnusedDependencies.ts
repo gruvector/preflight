@@ -7,7 +7,10 @@ export const title = 'No unused dependencies';
 export default async function noUnusedDependencies() {
   const ignoredPackagePatterns = [
     // Unused dependency detected in create-react-app
+    '@testing-library/jest-dom',
+    '@testing-library/react',
     '@testing-library/user-event',
+    'web-vitals',
 
     // ESLint configuration
     '@typescript-eslint/*',
