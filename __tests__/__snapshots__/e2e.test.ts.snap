@@ -5,6 +5,8 @@ exports[`Preflight passes in the react-passing test project 1`] = `
 [STARTED] All changes committed to Git
 [STARTED] ESLint
 [STARTED] GitHub repo has deployed project link under About
+[STARTED] No dependencies without types
+[STARTED] No dependency problems
 [STARTED] No extraneous files committed to Git
 [STARTED] No secrets committed to Git
 [STARTED] No unused dependencies
@@ -14,6 +16,8 @@ exports[`Preflight passes in the react-passing test project 1`] = `
 [SUCCESS] All changes committed to Git
 [SUCCESS] ESLint
 [SUCCESS] GitHub repo has deployed project link under About
+[SUCCESS] No dependencies without types
+[SUCCESS] No dependency problems
 [SUCCESS] No extraneous files committed to Git
 [SUCCESS] No secrets committed to Git
 [SUCCESS] No unused dependencies

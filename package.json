@@ -70,6 +70,7 @@
     "execa": "5.0.0",
     "listr2": "3.3.0",
     "node-fetch": "2.6.1",
+    "p-reduce": "^2.1.0",
     "semver": "7.3.4"
   },
   "resolutions": {

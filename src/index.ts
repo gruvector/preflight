@@ -5,11 +5,14 @@ import * as allChangesCommittedToGit from './checks/allChangesCommittedToGit';
 import * as eslint from './checks/eslint';
 import * as linkOnGithubAbout from './checks/linkOnGithubAbout';
 import * as nodeModulesIgnoredFromGit from './checks/nodeModulesIgnoredFromGit';
+import * as noDependenciesWithoutTypes from './checks/noDependencyProblems/noDependenciesWithoutTypes';
+import * as noUnusedDependencies from './checks/noDependencyProblems/noUnusedDependencies';
 import * as noExtraneousFilesCommittedToGit from './checks/noExtraneousFilesCommittedToGit';
 import * as noSecretsCommittedToGit from './checks/noSecretsCommittedToGit';
-import * as noUnusedDependencies from './checks/noUnusedDependencies';
 import * as preflightIsLatestVersion from './checks/preflightIsLatestVersion';
 import * as useSinglePackageManager from './checks/useSinglePackageManager';
+import { CtxParam } from './types/CtxParam';
+import { TaskParam } from './types/TaskParam';
 
 const version = JSON.parse(
   await fs.readFile(new URL('../package.json', import.meta.url), 'utf-8'),
@@ -30,7 +33,20 @@ const listrTasks = [
 
   // ======= Async Tasks =======
   // Dependencies
-  noUnusedDependencies,
+  {
+    title: 'No dependency problems',
+    task: (ctx: CtxParam, task: TaskParam): Listr =>
+      task.newListr([
+        {
+          title: noUnusedDependencies.title,
+          task: noUnusedDependencies.default,
+        },
+        {
+          title: noDependenciesWithoutTypes.title,
+          task: noDependenciesWithoutTypes.default,
+        },
+      ]),
+  },
 
   // GitHub
   linkOnGithubAbout,
@@ -40,10 +56,13 @@ const listrTasks = [
 
   // Preflight
   preflightIsLatestVersion,
-].map(module => ({
-  title: module.title,
-  task: module.default,
-}));
+].map(module => {
+  if ('task' in module) return module;
+  return {
+    title: module.title,
+    task: module.default,
+  };
+});
 
 await new Listr(listrTasks, {
   exitOnError: false,
