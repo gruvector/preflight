@@ -62,12 +62,9 @@ export default async function noDependenciesWithoutTypes() {
         return filteredDependencies;
       }
 
-      const results = await index.getObject<AlgoliaObj>(
-        '@testing-library/jest-dom',
-        {
-          attributesToRetrieve: [`types`],
-        },
-      );
+      const results = await index.getObject<AlgoliaObj>(dependency, {
+        attributesToRetrieve: ['types'],
+      });
 
       const definitelyTypedPackageName = results.types?.definitelyTyped;
 
