@@ -1,11 +1,24 @@
-import cheerio from 'cheerio';
+import algoliasearch from 'algoliasearch';
 import { existsSync, promises as fs } from 'fs';
 import { createRequire } from 'module';
-import fetch from 'node-fetch';
 import pReduce from 'p-reduce';
 import commandExample from '../../commandExample';
 
 const require = createRequire(import.meta.url);
+const client = algoliasearch(
+  // Application ID and API key specific to UpLeveled
+  // Preflight. Please don't use anywhere else without
+  // asking Algolia's permission.
+  'OFCNCOG2CU', // Application ID
+  'ec73550aa8b2936dab436d4e02144784', // API Key
+);
+const index = client.initIndex('npm-search');
+
+interface AlgoliaObj {
+  types?: {
+    definitelyTyped?: string;
+  };
+}
 
 export const title = 'No dependencies without types';
 
@@ -45,34 +58,20 @@ export default async function noDependenciesWithoutTypes() {
       } catch (err) {}
 
       // If the index.d.ts file exists inside the module's directory, bail out
-      if (indexDTsPath && (await existsSync(indexDTsPath))) {
+      if (indexDTsPath && existsSync(indexDTsPath)) {
         return filteredDependencies;
       }
 
-      // TODO: Change this to use Algolia npm search index instead
-      //
-      // https://github.com/yarnpkg/berry/blob/master/packages/plugin-typescript/sources/typescriptUtils.ts#L8-L9
-      //
-      // index: npm-search
-      // app id: OFCNCOG2CU
-      // api key: ec73550aa8b2936dab436d4e02144784
-      const html = await (
-        await fetch(`https://www.npmjs.com/package/${dependency}`)
-      ).text();
-
-      const $ = cheerio.load(html);
-
-      const definitelyTypedPreamble =
-        'This package has TypeScript declarations provided by ';
-      const definitelyTypedImage = $(
-        `img[title^="${definitelyTypedPreamble}"]`,
+      const results = await index.getObject<AlgoliaObj>(
+        '@testing-library/jest-dom',
+        {
+          attributesToRetrieve: [`types`],
+        },
       );
 
-      if (definitelyTypedImage.length > 0) {
-        const definitelyTypedPackageName = (definitelyTypedImage.attr(
-          'title',
-        ) as string).replace(definitelyTypedPreamble, '');
+      const definitelyTypedPackageName = results.types?.definitelyTyped;
 
+      if (definitelyTypedPackageName) {
         // If a matching `@types/<package name>` has been already installed in devDependencies, bail out
         if (Object.keys(devDependencies).includes(definitelyTypedPackageName)) {
           return filteredDependencies;
