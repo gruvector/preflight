@@ -5,7 +5,7 @@ on:
       - '**'
 jobs:
   build:
-    name: Build, lint, and test on ${{ matrix.os }}
+    name: ${{ matrix.os }}: Build, lint, test
 
     runs-on: ${{ matrix.os }}
     strategy:
