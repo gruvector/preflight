@@ -4,6 +4,7 @@ exports[`Preflight passes in the react-passing test project 1`] = `
 "🚀 UpLeveled Preflight
 [STARTED] All changes committed to Git
 [STARTED] ESLint
+[STARTED] ESLint config is latest version
 [STARTED] GitHub repo has deployed project link under About
 [STARTED] No dependencies without types
 [STARTED] No dependency problems
@@ -15,6 +16,7 @@ exports[`Preflight passes in the react-passing test project 1`] = `
 [STARTED] node_modules/ folder ignored in Git
 [SUCCESS] All changes committed to Git
 [SUCCESS] ESLint
+[SUCCESS] ESLint config is latest version
 [SUCCESS] GitHub repo has deployed project link under About
 [SUCCESS] No dependencies without types
 [SUCCESS] No dependency problems
