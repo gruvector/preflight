@@ -13,6 +13,14 @@ jobs:
         os: [ubuntu-latest, windows-latest]
 
     steps:
+      # To avoid CRLF in Windows tests, which cause problems with Prettier:
+      # https://github.com/upleveled/preflight/runs/1824397400
+      #
+      # Suggested here: https://github.com/actions/checkout/issues/250#issuecomment-635267458
+      # Example repo: https://github.com/ghdl/ghdl/blob/aa63b5efcd2be66acc26443032df2b251e4b1a7a/.github/workflows/Test.yml#L230-L232
+      - name: Use LF instead of CRLF for clone
+        run: git config --global core.autocrlf input
+
       - name: Checkout repo
         uses: actions/checkout@v2
 
