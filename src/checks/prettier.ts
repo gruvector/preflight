@@ -17,7 +17,8 @@ export default async function prettierCheck() {
 
     throw new Error(
       `Prettier has not been run in the following files:
-        ${error.stdout}
+        stdout: ${error.stdout}
+        stderr: ${error.stderr}
       `,
     );
   }
