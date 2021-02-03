@@ -1,4 +1,5 @@
 import execa from 'execa';
+import { promises as fs } from 'fs';
 
 export const title = 'All changes committed to Git';
 
@@ -8,7 +9,7 @@ export default async function allChangesCommittedToGit() {
   const isRunningInReplIt = replSlug !== '';
 
   if (isRunningInReplIt) {
-    await execa.command('echo ".replit" >> .git/info/exclude');
+    await fs.writeFile('.git/info/exclude', '.replit\n');
   }
 
   const { stdout } = await execa.command('git status --porcelain');
