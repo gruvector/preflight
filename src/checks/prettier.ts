@@ -11,6 +11,7 @@ export default async function prettierCheck() {
       { cwd: dirname(fileURLToPath(import.meta.url)) },
     );
   } catch (error) {
+    throw error;
     if (!error.stdout) {
       throw error;
     }
