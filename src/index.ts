@@ -11,6 +11,7 @@ import * as noUnusedDependencies from './checks/noDependencyProblems/noUnusedDep
 import * as noExtraneousFilesCommittedToGit from './checks/noExtraneousFilesCommittedToGit';
 import * as noSecretsCommittedToGit from './checks/noSecretsCommittedToGit';
 import * as preflightIsLatestVersion from './checks/preflightIsLatestVersion';
+import * as prettier from './checks/prettier';
 import * as useSinglePackageManager from './checks/useSinglePackageManager';
 import { CtxParam } from './types/CtxParam';
 import { TaskParam } from './types/TaskParam';
@@ -54,6 +55,7 @@ const listrTasks = [
 
   // Linting
   eslint,
+  prettier,
 
   // Version checks
   eslintConfigIsLatestVersion,

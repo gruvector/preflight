@@ -12,6 +12,7 @@ exports[`Preflight passes in the react-passing test project 1`] = `
 [STARTED] No secrets committed to Git
 [STARTED] No unused dependencies
 [STARTED] Preflight is latest version
+[STARTED] Prettier
 [STARTED] Use single package manager
 [STARTED] node_modules/ folder ignored in Git
 [SUCCESS] All changes committed to Git
@@ -24,6 +25,7 @@ exports[`Preflight passes in the react-passing test project 1`] = `
 [SUCCESS] No secrets committed to Git
 [SUCCESS] No unused dependencies
 [SUCCESS] Preflight is latest version
+[SUCCESS] Prettier
 [SUCCESS] Use single package manager
 [SUCCESS] node_modules/ folder ignored in Git"
 `;
