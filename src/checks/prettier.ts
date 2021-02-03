@@ -7,7 +7,7 @@ export const title = 'Prettier';
 export default async function prettierCheck() {
   try {
     await execa.command(
-      `yarn --silent prettier --list-different "${process.cwd()}/**/*.{js,ts}" --ignore-path ${process.cwd()}/.eslintignore`,
+      `yarn --silent prettier --list-different ${process.cwd()}/**/*.{js,ts} --ignore-path ${process.cwd()}/.eslintignore`,
       { cwd: dirname(fileURLToPath(import.meta.url)) },
     );
   } catch (error) {
