@@ -6,7 +6,7 @@ export default async function prettierCheck() {
   try {
     const prettierBinPath = require.resolve('prettier');
     await execa.command(
-      `${prettierBinPath} --silent prettier --list-different "**/*.js" "**/*.ts" --ignore-path .eslintignore`,
+      `${prettierBinPath} --list-different "**/*.js" "**/*.ts" --ignore-path .eslintignore`,
     );
   } catch (error) {
     if (!error.stdout) {
