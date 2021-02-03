@@ -14,7 +14,8 @@ export default async function prettierCheck() {
     );
 
     await execa.command(
-      `${prettierBinPath} --list-different "**/*.js" "**/*.ts" --ignore-path .eslintignore`,
+      `${prettierBinPath} --list-different "**/*.{js,ts}" --ignore-path .eslintignore`,
+      { cwd: process.cwd() },
     );
   } catch (error) {
     if (!error.stdout) {
