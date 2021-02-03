@@ -6,9 +6,12 @@ export const title = 'Prettier';
 
 export default async function prettierCheck() {
   try {
-    const prettierBinPath = await execa.command('yarn bin prettier', {
-      cwd: dirname(fileURLToPath(import.meta.url)),
-    });
+    const { stdout: prettierBinPath } = await execa.command(
+      'yarn bin prettier',
+      {
+        cwd: dirname(fileURLToPath(import.meta.url)),
+      },
+    );
 
     await execa.command(
       `${prettierBinPath} --list-different "**/*.js" "**/*.ts" --ignore-path .eslintignore`,
