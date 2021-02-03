@@ -78,9 +78,5 @@
   },
   "resolutions": {
     "eslint": "7.18.0"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "all"
   }
 }

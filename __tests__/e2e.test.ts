@@ -47,7 +47,7 @@ beforeAll(
 
         return pMap(
           installCommands,
-          async command =>
+          async (command) =>
             execa.command(command, {
               cwd: `${fixturesTempDir}/${dirName}`,
             }),

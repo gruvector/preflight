@@ -4,7 +4,7 @@ export const title = 'Prettier';
 
 export default async function prettierCheck() {
   try {
-    const prettierBinPath = require.resolve('prettier')
+    const prettierBinPath = require.resolve('prettier');
     await execa.command(
       `${prettierBinPath} --silent prettier --list-different "**/*.js" "**/*.ts" --ignore-path .eslintignore`,
     );

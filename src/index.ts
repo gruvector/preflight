@@ -60,7 +60,7 @@ const listrTasks = [
   // Version checks
   eslintConfigIsLatestVersion,
   preflightIsLatestVersion,
-].map(module => {
+].map((module) => {
   if ('task' in module) return module;
   return {
     title: module.title,

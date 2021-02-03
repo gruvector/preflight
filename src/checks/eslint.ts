@@ -20,9 +20,9 @@ export default async function eslintCheck() {
         ${normalizeNewline(error.stdout)
           .split('\n')
           // Match lines starting with slashes (macOS, Linux) or drive letters (Windows)
-          .filter(line => /^(\/|[A-Z]:\\)/.test(line))
+          .filter((line) => /^(\/|[A-Z]:\\)/.test(line))
           // Strip out the filename
-          .map(line => line.match(/^(([A-Z]:)?[^:]+):/)?.[1])
+          .map((line) => line.match(/^(([A-Z]:)?[^:]+):/)?.[1])
           // Remove duplicate filenames
           .reduce((linesWithoutDuplicates: string[], line) => {
             if (line && !linesWithoutDuplicates.includes(line)) {
