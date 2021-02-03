@@ -1,10 +1,8 @@
 import algoliasearch from 'algoliasearch';
 import { existsSync, promises as fs } from 'fs';
-import { createRequire } from 'module';
 import pReduce from 'p-reduce';
 import commandExample from '../../commandExample';
 
-const require = createRequire(import.meta.url);
 const client = algoliasearch(
   // Application ID and API key specific to UpLeveled
   // Preflight. Please don't use anywhere else without
