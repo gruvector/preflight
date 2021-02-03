@@ -12,6 +12,7 @@ export default async function prettierCheck() {
     );
   } catch (error) {
     throw error;
+    // eslint-disable-next-line
     if (!error.stdout) {
       throw error;
     }
