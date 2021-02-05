@@ -10,6 +10,7 @@ export default async function noUnusedDependencies() {
     '@testing-library/jest-dom',
     '@testing-library/react',
     '@testing-library/user-event',
+    'react-scripts',
     'web-vitals',
 
     // ESLint configuration
