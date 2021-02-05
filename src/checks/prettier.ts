@@ -15,7 +15,12 @@ export default async function prettierCheck() {
       { cwd: dirname(fileURLToPath(import.meta.url)) },
     );
   } catch (error) {
-    if (!error.stdout || error.stderr) {
+    const stderrWithoutPackageJsonWarning = error.stderr.replace(
+      /warning [/.\\]+package\.json: No license field/,
+      '',
+    );
+
+    if (!error.stdout || stderrWithoutPackageJsonWarning) {
       throw error;
     }
 
