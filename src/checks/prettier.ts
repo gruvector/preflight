@@ -11,7 +11,7 @@ export default async function prettierCheck() {
       '--single-quote true --trailing-comma all';
 
     await execa.command(
-      `yarn --silent prettier --list-different ${process.cwd()}/**/*.{js,ts} --ignore-path ${process.cwd()}/.eslintignore ${defaultConfigFromSystemSetup}`,
+      `yarn --silent prettier --list-different ${process.cwd()}/**/*.{js,ts} --ignore-path ${process.cwd()}/.eslintignore ${defaultConfigFromSystemSetup} --end-of-line auto`,
       { cwd: dirname(fileURLToPath(import.meta.url)) },
     );
   } catch (error) {
