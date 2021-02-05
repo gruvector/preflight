@@ -24,8 +24,8 @@
     "node": ">=14"
   },
   "scripts": {
-    "start": "tsdx watch --format esm",
-    "build": "tsdx build --format esm",
+    "start": "tsdx watch --format esm --target node",
+    "build": "tsdx build --format esm --target node",
     "test": "tsdx test",
     "test-local": "rm -rf ./__tests__/fixtures/__temp && yarn test",
     "lint": "tsdx lint src __tests__ --max-warnings 0",
