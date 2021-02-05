@@ -1,6 +1,7 @@
 import execa from 'execa';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import normalizeNewline from '../normalizeNewline';
 
 export const title = 'Prettier';
 
@@ -24,10 +25,33 @@ export default async function prettierCheck() {
       throw error;
     }
 
-    throw new Error(
-      `Prettier has not been run in the following files:
-        ${error.stdout}
+    const ignoredFilePatterns = [
+      // File from create-react-app not matching our formatting
+      // https://github.com/facebook/create-react-app/blob/fdbde1f3c256b43d5386b5ae3a75083dbd8f0aff/packages/cra-template/template/src/reportWebVitals.js
+      /src[/\\]reportWebVitals\.js$/,
+    ];
+
+    const unformattedFiles = normalizeNewline(error.stdout)
+      .split('\n')
+      .map((file) =>
+        // Make paths relative to the project instead of Preflight, eg:
+        // before: ../../../../../../projects/random-color-generator-react-app/src/reportWebVitals.js
+        // after: random-color-generator-react-app/src/reportWebVitals.js
+        file.replace(/^([A-Z]:|\.\.[/\\])[a-zA-Z0-9-_/.\\ ]*projects[/\\]/, ''),
+      )
+      .filter(
+        (file) =>
+          !ignoredFilePatterns.some((ignoredFilePattern) =>
+            ignoredFilePattern.test(file),
+          ),
+      );
+
+    if (unformattedFiles.length > 0) {
+      throw new Error(
+        `Prettier has not been run in the following files:
+        ${unformattedFiles.join('\n')}
       `,
-    );
+      );
+    }
   }
 }
