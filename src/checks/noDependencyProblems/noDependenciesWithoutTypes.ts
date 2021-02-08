@@ -29,7 +29,7 @@ export const title = 'No dependencies without types';
 //
 // https://learn.upleveled.io/courses/btcmp-l-webfs-gen-0/modules/122-cheatsheet-css-in-js/#eslint-errors-with-styled-components
 export default async function noDependenciesWithoutTypes() {
-  const { devDependencies, dependencies } = JSON.parse(
+  const { devDependencies = {}, dependencies = {} } = JSON.parse(
     await fs.readFile('package.json', 'utf-8'),
   );
 
