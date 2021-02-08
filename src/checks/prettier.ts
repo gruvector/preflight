@@ -17,7 +17,7 @@ export default async function prettierCheck() {
     );
   } catch (error) {
     const stderrWithoutPackageJsonWarning = error.stderr.replace(
-      /warning [/.\\]+package\.json: No license field/,
+      /warning [/.\\]*package\.json: No license field[\r\n]*/g,
       '',
     );
 
