@@ -74,7 +74,8 @@
     "node-fetch": "2.6.1",
     "p-reduce": "^2.1.0",
     "prettier": "^2.2.1",
-    "semver": "7.3.4"
+    "semver": "7.3.4",
+    "top-user-agents": "^1.0.20"
   },
   "resolutions": {
     "eslint": "7.19.0"
