@@ -37,7 +37,7 @@
   "devDependencies": {
     "@size-limit/preset-small-lib": "4.9.2",
     "@types/cheerio": "0.22.23",
-    "@types/node": "14.14.25",
+    "@types/node": "14.14.26",
     "@types/node-fetch": "2.5.8",
     "@types/p-map": "2.0.0",
     "@types/semver": "7.3.4",
