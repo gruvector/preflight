@@ -17,11 +17,11 @@ export default async function linkOnGithubAbout() {
   const $ = cheerio.load(html);
 
   const urlInAboutSection = $('h2')
-    .filter(function (this: Node) {
+    .filter(function (this: cheerio.Element) {
       return $(this).text().trim() === 'About';
     })
     .nextAll('div')
-    .filter(function (this: Node) {
+    .filter(function (this: cheerio.Element) {
       return $(this).children('.octicon.octicon-link').length > 0;
     })
     .children('.octicon.octicon-link')
