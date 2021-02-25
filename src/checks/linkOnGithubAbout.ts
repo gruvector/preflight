@@ -1,4 +1,5 @@
 import cheerio from 'cheerio';
+import type { Element } from 'domhandler';
 import execa from 'execa';
 import fetch from 'node-fetch';
 import randomUserAgent from '../randomUserAgent';
@@ -17,11 +18,11 @@ export default async function linkOnGithubAbout() {
   const $ = cheerio.load(html);
 
   const urlInAboutSection = $('h2')
-    .filter(function (this: cheerio.Element) {
+    .filter(function (this: Element) {
       return $(this).text().trim() === 'About';
     })
     .nextAll('div')
-    .filter(function (this: cheerio.Element) {
+    .filter(function (this: Element) {
       return $(this).children('.octicon.octicon-link').length > 0;
     })
     .children('.octicon.octicon-link')
