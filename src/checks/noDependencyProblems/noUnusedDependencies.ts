@@ -22,6 +22,11 @@ export default async function noUnusedDependencies() {
     'eslint-import-resolver-typescript',
     'eslint-plugin-*',
 
+    // Testing
+    'babel-jest',
+    'jest',
+    'cypress',
+
     // TypeScript
     'typescript',
     '@types/*',
