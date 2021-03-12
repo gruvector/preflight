@@ -13,6 +13,11 @@ export default async function noUnusedDependencies() {
     'react-scripts',
     'web-vitals',
 
+    // Tailwind CSS
+    'autoprefixer',
+    'postcss',
+    'tailwindcss',
+
     // ESLint configuration
     '@typescript-eslint/*',
     '@upleveled/eslint-config-upleveled',
