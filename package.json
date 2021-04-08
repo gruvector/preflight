@@ -71,7 +71,7 @@
     "execa": "5.0.0",
     "listr2": "3.4.4",
     "node-fetch": "2.6.1",
-    "p-reduce": "^2.1.0",
+    "p-reduce": "^3.0.0",
     "prettier": "^2.2.1",
     "semver": "7.3.5",
     "top-user-agents": "1.0.21"
