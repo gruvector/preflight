@@ -55,8 +55,17 @@ export default async function prettierCheck() {
     if (unformattedFiles.length > 0) {
       throw new Error(
         `Prettier has not been run in the following files:
-        ${unformattedFiles.join('\n')}
-      `,
+          ${unformattedFiles.join('\n')}
+
+          If the code in these files looks like it's already been formatted by Prettier, the mismatch may come from inconsisten end of line characters.
+
+          Fix this in VS Code like this:
+
+          1. cmd/ctrl-shift-P -> Change End of Line Sequence -> CRLF
+          2. Save the file
+          3. cmd/ctrl-shift-P -> Change End of Line Sequence -> LF
+          4. Save the file
+        `,
       );
     }
   }
