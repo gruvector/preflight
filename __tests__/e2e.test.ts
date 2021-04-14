@@ -57,8 +57,8 @@ beforeAll(
       { concurrency: 1 },
     );
   },
-  // 2 minute timeout for yarn installation
-  120000,
+  // 5 minute timeout for Yarn installation inside test repos
+  300000,
 );
 
 describe('Preflight', () => {
