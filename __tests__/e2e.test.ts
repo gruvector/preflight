@@ -19,12 +19,7 @@ const testRepos: Repo[] = [
   {
     repoPath: 'upleveled/preflight-test-project-react-passing',
     dirName: 'react-passing',
-    installCommands: [
-      // To install the latest version of the ESLint config
-      'yarn upgrade --latest @upleveled/eslint-config-upleveled',
-      // Avoid any issues with uncommitted files
-      'git reset --hard HEAD',
-    ],
+    installCommands: [],
   },
 ];
 
