@@ -12,7 +12,7 @@ async function cloneRepoToFixtures(repoPath: string, fixtureDirName: string) {
 type Repo = {
   repoPath: string;
   dirName: string;
-  installCommands: string[];
+  installCommands?: string[];
 };
 
 const testRepos: Repo[] = [
@@ -39,7 +39,7 @@ beforeAll(
     await pMap(
       testRepos,
       async ({ dirName, installCommands }) => {
-        if (installCommands.length < 1) {
+        if (!installCommands || installCommands.length < 1) {
           return execa.command('yarn --frozen-lockfile', {
             cwd: `${fixturesTempDir}/${dirName}`,
           });
