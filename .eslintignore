@@ -1,3 +1,4 @@
 dist
 .eslintrc.cjs
+babel.config.cjs
 prettier.config.cjs

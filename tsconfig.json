@@ -1,7 +1,7 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
   "include": ["bin", "__tests__", "src"],
-  "exclude": [".eslintrc.cjs", "dist"],
+  "exclude": ["babel.config.cjs", ".eslintrc.cjs", "dist"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
