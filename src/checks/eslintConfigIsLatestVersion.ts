@@ -1,6 +1,6 @@
+import { promises as fs } from 'node:fs';
+import { createRequire } from 'node:module';
 import execa from 'execa';
-import { promises as fs } from 'fs';
-import { createRequire } from 'module';
 import semver from 'semver';
 import commandExample from '../commandExample';
 

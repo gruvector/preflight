@@ -1,5 +1,5 @@
+import { promises as fs } from 'node:fs';
 import execa from 'execa';
-import { promises as fs } from 'fs';
 import commandExample from '../commandExample';
 import normalizeNewline from '../normalizeNewline';
 

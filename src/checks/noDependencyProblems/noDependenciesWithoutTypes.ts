@@ -1,5 +1,5 @@
+import { existsSync, promises as fs } from 'node:fs';
 import algoliasearch from 'algoliasearch';
-import { existsSync, promises as fs } from 'fs';
 import pReduce from 'p-reduce';
 import commandExample from '../../commandExample';
 

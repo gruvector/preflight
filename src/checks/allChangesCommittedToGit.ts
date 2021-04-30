@@ -1,5 +1,5 @@
+import { promises as fs } from 'node:fs';
 import execa from 'execa';
-import { promises as fs } from 'fs';
 
 export const title = 'All changes committed to Git';
 

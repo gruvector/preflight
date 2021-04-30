@@ -1,6 +1,6 @@
-import { promises as fs } from 'fs';
+import { promises as fs } from 'node:fs';
+import { URL } from 'node:url';
 import { Listr } from 'listr2';
-import { URL } from 'url';
 import * as allChangesCommittedToGit from './checks/allChangesCommittedToGit';
 import * as eslint from './checks/eslint';
 import * as eslintConfigIsLatestVersion from './checks/eslintConfigIsLatestVersion';
