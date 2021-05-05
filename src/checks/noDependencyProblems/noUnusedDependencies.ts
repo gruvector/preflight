@@ -6,6 +6,50 @@ export const title = 'No unused dependencies';
 
 export default async function noUnusedDependencies() {
   const ignoredPackagePatterns = [
+    // TODO: Remove this when the PR gets accepted:
+    // https://github.com/depcheck/depcheck/pull/635
+    //
+    // Ignore builtin modules with node: prefix
+    'node:assert',
+    'node:async_hooks',
+    'node:buffer',
+    'node:child_process',
+    'node:cluster',
+    'node:console',
+    'node:constants',
+    'node:crypto',
+    'node:dgram',
+    'node:dns',
+    'node:domain',
+    'node:events',
+    'node:fs',
+    'node:http',
+    'node:http2',
+    'node:https',
+    'node:inspector',
+    'node:module',
+    'node:net',
+    'node:os',
+    'node:path',
+    'node:perf_hooks',
+    'node:process',
+    'node:querystring',
+    'node:readline',
+    'node:repl',
+    'node:stream',
+    'node:string_decoder',
+    'node:timers',
+    'node:tls',
+    'node:trace_events',
+    'node:tty',
+    'node:url',
+    'node:util',
+    'node:v8',
+    'node:vm',
+    'node:wasi',
+    'node:worker_threads',
+    'node:zlib',
+
     // Unused dependency detected in create-react-app
     '@testing-library/jest-dom',
     '@testing-library/react',
