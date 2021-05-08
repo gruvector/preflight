@@ -6,6 +6,12 @@ export const title = 'No unused dependencies';
 
 export default async function noUnusedDependencies() {
   const ignoredPackagePatterns = [
+    // TODO: Remove this when repl.it fully supports `node:` prefixes
+    // Instructions: https://gist.github.com/karlhorky/1a0f1a02a369e5d5015bdc6365142d77
+    // Repl.it will support node: prefix: https://twitter.com/amasad/status/1390720114832543744
+    '@babel/cli',
+    '@upleveled/babel-plugin-remove-node-prefix',
+
     // TODO: Remove this when the PR gets accepted:
     // https://github.com/depcheck/depcheck/pull/635
     //
