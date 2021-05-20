@@ -27,7 +27,7 @@ yarn global add @upleveled/preflight --ignore-engines
 Then you can use the path to the global `node` and `preflight` modules to run it:
 
 ```bash
-npx node@15 /home/runner/.config/yarn/global/node_modules/@upleveled/preflight/dist/preflight.esm.js
+npx node@16 /home/runner/.config/yarn/global/node_modules/@upleveled/preflight/dist/preflight.esm.js
 ```
 
 More information here: https://github.com/upleveled/preflight/issues/17
