@@ -35,18 +35,18 @@
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "7.14.0",
+    "@babel/plugin-transform-modules-commonjs": "7.14.5",
     "@next/eslint-plugin-next": "11.0.1",
-    "@size-limit/preset-small-lib": "4.11.0",
+    "@size-limit/preset-small-lib": "4.12.0",
     "@types/node": "15.0.1",
     "@types/node-fetch": "2.5.10",
     "@types/p-map": "2.0.0",
     "@types/semver": "7.3.6",
-    "@typescript-eslint/eslint-plugin": "4.26.0",
-    "@typescript-eslint/parser": "4.26.0",
-    "@upleveled/eslint-config-upleveled": "1.13.5",
+    "@typescript-eslint/eslint-plugin": "4.28.0",
+    "@typescript-eslint/parser": "4.28.0",
+    "@upleveled/eslint-config-upleveled": "1.14.4",
     "babel-eslint": "10.1.0",
-    "eslint": "7.27.0",
+    "eslint": "7.29.0",
     "eslint-config-react-app": "6.0.0",
     "eslint-import-resolver-typescript": "2.4.0",
     "eslint-plugin-cypress": "2.11.3",
@@ -60,18 +60,18 @@
     "eslint-plugin-testing-library": "4.6.0",
     "eslint-plugin-unicorn": "33.0.1",
     "p-map": "5.0.0",
-    "size-limit": "4.11.0",
+    "size-limit": "4.12.0",
     "tsdx": "0.14.1",
-    "tslib": "2.2.0",
-    "typescript": "4.3.2"
+    "tslib": "2.3.0",
+    "typescript": "4.3.4"
   },
   "dependencies": {
     "algoliasearch": "^4.8.4",
     "chalk": "4.1.1",
-    "cheerio": "1.0.0-rc.9",
+    "cheerio": "1.0.0-rc.10",
     "depcheck": "1.4.1",
-    "execa": "5.1.0",
-    "listr2": "3.9.0",
+    "execa": "5.1.1",
+    "listr2": "3.10.0",
     "node-fetch": "2.6.1",
     "p-reduce": "^3.0.0",
     "prettier": "^2.2.1",
@@ -80,7 +80,7 @@
   },
   "resolutions": {
     "tsdx/**/node-notifier": "10.0.0",
-    "eslint": "7.27.0"
+    "eslint": "7.29.0"
   },
   "jest": {
     "transformIgnorePatterns": [
