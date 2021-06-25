@@ -7,7 +7,7 @@ import * as eslintConfigIsLatestVersion from './checks/eslintConfigIsLatestVersi
 import * as linkOnGithubAbout from './checks/linkOnGithubAbout';
 import * as nodeModulesIgnoredFromGit from './checks/nodeModulesIgnoredFromGit';
 import * as noDependenciesWithoutTypes from './checks/noDependencyProblems/noDependenciesWithoutTypes';
-import * as noUnusedDependencies from './checks/noDependencyProblems/noUnusedDependencies';
+import * as noUnusedAndMissingDependencies from './checks/noDependencyProblems/noUnusedDependencies';
 import * as noExtraneousFilesCommittedToGit from './checks/noExtraneousFilesCommittedToGit';
 import * as noSecretsCommittedToGit from './checks/noSecretsCommittedToGit';
 import * as preflightIsLatestVersion from './checks/preflightIsLatestVersion';
@@ -40,8 +40,8 @@ const listrTasks = [
     task: (ctx: CtxParam, task: TaskParam): Listr =>
       task.newListr([
         {
-          title: noUnusedDependencies.title,
-          task: noUnusedDependencies.default,
+          title: noUnusedAndMissingDependencies.title,
+          task: noUnusedAndMissingDependencies.default,
         },
         {
           title: noDependenciesWithoutTypes.title,

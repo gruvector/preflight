@@ -4,57 +4,13 @@ import preflightBinPath from '../../preflightBinPath';
 
 export const title = 'No unused dependencies';
 
-export default async function noUnusedDependencies() {
+export default async function noUnusedAndMissingDependencies() {
   const ignoredPackagePatterns = [
     // TODO: Remove this when repl.it fully supports `node:` prefixes
     // Instructions: https://gist.github.com/karlhorky/1a0f1a02a369e5d5015bdc6365142d77
     // Repl.it will support node: prefix: https://twitter.com/amasad/status/1390720114832543744
     '@babel/cli',
     '@upleveled/babel-plugin-remove-node-prefix',
-
-    // TODO: Remove this when the PR gets accepted:
-    // https://github.com/depcheck/depcheck/pull/635
-    //
-    // Ignore builtin modules with node: prefix
-    'node:assert',
-    'node:async_hooks',
-    'node:buffer',
-    'node:child_process',
-    'node:cluster',
-    'node:console',
-    'node:constants',
-    'node:crypto',
-    'node:dgram',
-    'node:dns',
-    'node:domain',
-    'node:events',
-    'node:fs',
-    'node:http',
-    'node:http2',
-    'node:https',
-    'node:inspector',
-    'node:module',
-    'node:net',
-    'node:os',
-    'node:path',
-    'node:perf_hooks',
-    'node:process',
-    'node:querystring',
-    'node:readline',
-    'node:repl',
-    'node:stream',
-    'node:string_decoder',
-    'node:timers',
-    'node:tls',
-    'node:trace_events',
-    'node:tty',
-    'node:url',
-    'node:util',
-    'node:v8',
-    'node:vm',
-    'node:wasi',
-    'node:worker_threads',
-    'node:zlib',
 
     // Unused dependency detected in create-react-app
     '@testing-library/jest-dom',
@@ -95,22 +51,45 @@ export default async function noUnusedDependencies() {
   } catch (error) {
     if (
       !error.stdout.startsWith('Unused dependencies') &&
-      !error.stdout.startsWith('Unused devDependencies')
+      !error.stdout.startsWith('Unused devDependencies') &&
+      !error.stdout.startsWith('Missing dependencies')
     ) {
       throw error;
     }
 
-    throw new Error(
-      `Unused dependencies found:
-        ${error.stdout
+    const [
+      unusedDependenciesStdout,
+      missingDependenciesStdout,
+    ] = error.stdout.split('Missing dependencies');
+
+    const messages = [];
+
+    if (unusedDependenciesStdout) {
+      messages.push(`Unused dependencies found:
+        ${unusedDependenciesStdout
           .split('\n')
           .filter((str: string) => str.includes('* '))
           .join('\n')}
 
-        Remove these dependencies running the following command for each dependency:
+        Remove these dependencies by running the following command for each dependency:
 
         ${commandExample('yarn remove <dependency name here>')}
-      `,
-    );
+      `);
+    }
+
+    if (missingDependenciesStdout) {
+      messages.push(`Missing dependencies found:
+        ${missingDependenciesStdout
+          .split('\n')
+          .filter((str: string) => str.includes('* '))
+          .join('\n')}
+
+        Add these missing dependencies by running the following command for each dependency:
+
+        ${commandExample('yarn add <dependency name here>')}
+      `);
+    }
+
+    throw new Error(messages.join('\n\n'));
   }
 }
