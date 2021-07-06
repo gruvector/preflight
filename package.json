@@ -41,9 +41,9 @@
     "@types/node": "16.0.0",
     "@types/node-fetch": "2.5.10",
     "@types/p-map": "2.0.0",
-    "@types/semver": "7.3.6",
-    "@typescript-eslint/eslint-plugin": "4.28.1",
-    "@typescript-eslint/parser": "4.28.1",
+    "@types/semver": "7.3.7",
+    "@typescript-eslint/eslint-plugin": "4.28.2",
+    "@typescript-eslint/parser": "4.28.2",
     "@upleveled/eslint-config-upleveled": "1.14.5",
     "babel-eslint": "10.1.0",
     "eslint": "7.30.0",
@@ -57,7 +57,7 @@
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
-    "eslint-plugin-testing-library": "4.7.0",
+    "eslint-plugin-testing-library": "4.9.0",
     "eslint-plugin-unicorn": "34.0.1",
     "p-map": "5.0.0",
     "size-limit": "5.0.1",
@@ -76,7 +76,7 @@
     "p-reduce": "^3.0.0",
     "prettier": "^2.2.1",
     "semver": "7.3.5",
-    "top-user-agents": "1.0.26"
+    "top-user-agents": "1.0.29"
   },
   "resolutions": {
     "tsdx/**/node-notifier": "10.0.0",
