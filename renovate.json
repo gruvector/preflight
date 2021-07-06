@@ -1,4 +1,4 @@
 {
   "extends": ["github>karlhorky/renovate-config"],
-  "schedule": null
+  "schedule": nullz
 }
