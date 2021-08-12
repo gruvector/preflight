@@ -36,14 +36,14 @@
   "peerDependencies": {},
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.15.0",
-    "@next/eslint-plugin-next": "11.0.1",
+    "@next/eslint-plugin-next": "11.1.0",
     "@size-limit/preset-small-lib": "5.0.2",
-    "@types/node": "16.4.12",
+    "@types/node": "16.6.0",
     "@types/node-fetch": "2.5.12",
     "@types/p-map": "2.0.0",
     "@types/semver": "7.3.8",
-    "@typescript-eslint/eslint-plugin": "4.29.0",
-    "@typescript-eslint/parser": "4.29.0",
+    "@typescript-eslint/eslint-plugin": "4.29.1",
+    "@typescript-eslint/parser": "4.29.1",
     "@upleveled/eslint-config-upleveled": "1.15.0",
     "babel-eslint": "10.1.0",
     "eslint": "7.32.0",
@@ -51,7 +51,7 @@
     "eslint-import-resolver-typescript": "2.4.0",
     "eslint-plugin-cypress": "2.11.3",
     "eslint-plugin-flowtype": "5.9.0",
-    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-import": "2.24.0",
     "eslint-plugin-jest": "24.4.0",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-prettier": "3.4.0",
@@ -62,7 +62,7 @@
     "p-map": "5.1.0",
     "size-limit": "5.0.2",
     "tsdx": "0.14.1",
-    "tslib": "2.3.0",
+    "tslib": "2.3.1",
     "typescript": "4.3.5"
   },
   "dependencies": {
@@ -76,7 +76,7 @@
     "p-reduce": "^3.0.0",
     "prettier": "^2.2.1",
     "semver": "7.3.5",
-    "top-user-agents": "1.0.36"
+    "top-user-agents": "1.0.37"
   },
   "resolutions": {
     "tsdx/**/node-notifier": "10.0.0",
