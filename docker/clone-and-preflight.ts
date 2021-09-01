@@ -14,16 +14,17 @@ $ docker run ghcr.io/upleveled/preflight https://github.com/upleveled/preflight-
 const repoPath = 'repo-to-check';
 
 async function executeCommand(command: string, cwd?: string) {
-  const { stdout, stderr, exitCode } = await execa.command(command, {
+  const { all, exitCode } = await execa.command(command, {
     cwd,
+    all: true,
     reject: false,
   });
 
   if (exitCode !== 0) {
-    console.error(stderr);
+    console.error(all);
     process.exit(1);
   } else {
-    return stdout;
+    return all;
   }
 }
 
