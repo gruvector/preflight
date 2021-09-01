@@ -1,9 +1,16 @@
 name: Build and push Docker image
-on: create
+on:
+  create:
+  workflow_dispatch:
+    inputs:
+      dispatchConfirmation:
+        description: 'Please confirm the workflow dispatch'
+        required: true
+        default: 'Workflow dispatch confirmed'
 
 jobs:
   build:
-    if: ${{ github.event.ref_type == 'tag' }}
+    if: ${{ github.event.ref_type == 'tag' || github.event.inputs.dispatchConfirmation == 'Workflow dispatch confirmed' }}
     name: Build and push Docker image
     runs-on: ubuntu-latest
     permissions:
