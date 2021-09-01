@@ -1,0 +1,14 @@
+{
+  "name": "@upleveled/preflight-docker",
+  "version": "1.0.0",
+  "private": true,
+  "author": "UpLeveled (https://github.com/upleveled)",
+  "contributors": [
+    "José Fernando Höwer Barbosa <josehowerupn@gmail.com>",
+    "Karl Horky <karl.horky@gmail.com>"
+  ],
+  "type": "module",
+  "dependencies": {
+    "execa": "5.1.1"
+  }
+}

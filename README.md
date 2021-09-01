@@ -31,3 +31,12 @@ npx node@16 /home/runner/.config/yarn/global/node_modules/@upleveled/preflight/d
 ```
 
 More information here: https://github.com/upleveled/preflight/issues/17
+
+## Install and Run with Docker
+
+Pull and run the image, along with a URL to the GitHub repository that you want to test:
+
+```bash
+docker pull ghcr.io/upleveled/preflight
+docker run ghcr.io/upleveled/preflight https://github.com/upleveled/preflight-test-project-react-passing
+```
