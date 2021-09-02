@@ -36,7 +36,7 @@
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "7.15.0",
+    "@babel/plugin-transform-modules-commonjs": "7.15.4",
     "@next/eslint-plugin-next": "11.1.2",
     "@size-limit/preset-small-lib": "5.0.3",
     "@types/node": "16.7.10",
