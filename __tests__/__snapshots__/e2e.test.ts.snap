@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Preflight passes in the react-passing test project 1`] = `
+exports[`Passes in the react-passing test project 1`] = `
 "🚀 UpLeveled Preflight
 [STARTED] All changes committed to Git
 [STARTED] ESLint
@@ -30,4 +30,7 @@ exports[`Preflight passes in the react-passing test project 1`] = `
 [SUCCESS] node_modules/ folder ignored in Git"
 `;
 
-exports[`Preflight passes in the react-passing test project 2`] = `""`;
+exports[`Passes in the react-passing test project 2`] = `
+"ExperimentalWarning: stream/web is an experimental feature. This feature could change at any time
+(Use \`node --trace-warnings ...\` to show where the warning was created)"
+`;
