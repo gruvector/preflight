@@ -50,18 +50,18 @@ export default async function noUnusedAndMissingDependencies() {
       `${preflightBinPath}/depcheck --ignores="${ignoredPackagePatterns}"`,
     );
   } catch (error) {
+    const { stdout } = error as { stdout: string };
     if (
-      !error.stdout.startsWith('Unused dependencies') &&
-      !error.stdout.startsWith('Unused devDependencies') &&
-      !error.stdout.startsWith('Missing dependencies')
+      !stdout.startsWith('Unused dependencies') &&
+      !stdout.startsWith('Unused devDependencies') &&
+      !stdout.startsWith('Missing dependencies')
     ) {
       throw error;
     }
 
-    const [
-      unusedDependenciesStdout,
-      missingDependenciesStdout,
-    ] = error.stdout.split('Missing dependencies');
+    const [unusedDependenciesStdout, missingDependenciesStdout] = stdout.split(
+      'Missing dependencies',
+    );
 
     const messages = [];
 

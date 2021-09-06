@@ -7,7 +7,7 @@ export default async function eslintCheck() {
   try {
     await execa.command('yarn eslint . --max-warnings 0  --format compact');
   } catch (error) {
-    const { stdout } = error;
+    const { stdout } = error as { stdout: string };
     const lines = stdout.split('\n');
 
     // If no ESLint problems detected, throw the error
@@ -17,7 +17,7 @@ export default async function eslintCheck() {
 
     throw new Error(
       `Errors found in files:
-        ${normalizeNewline(error.stdout)
+        ${normalizeNewline(stdout)
           .split('\n')
           // Match lines starting with slashes (macOS, Linux) or drive letters (Windows)
           .filter((line) => /^(\/|[A-Z]:\\)/.test(line))

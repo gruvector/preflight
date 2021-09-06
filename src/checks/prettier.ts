@@ -12,16 +12,18 @@ export default async function prettierCheck() {
       '--single-quote true --trailing-comma all';
 
     await execa.command(
-      `yarn --silent prettier --list-different ${process.cwd()}/**/*.{js,ts} --ignore-path ${process.cwd()}/.eslintignore ${defaultConfigFromSystemSetup} --end-of-line auto`,
+      `yarn --silent prettier --list-different ${process.cwd()}/**/*.{js,jsx,ts,jsx} --ignore-path ${process.cwd()}/.eslintignore ${defaultConfigFromSystemSetup} --end-of-line auto`,
       { cwd: dirname(fileURLToPath(import.meta.url)) },
     );
   } catch (error) {
-    const stderrWithoutPackageJsonWarning = error.stderr.replace(
+    const { stdout, stderr } = error as { stdout: string; stderr: string };
+
+    const stderrWithoutPackageJsonWarning = stderr.replace(
       /warning [/.\\]*package\.json: No license field[\r\n]*/g,
       '',
     );
 
-    if (!error.stdout || stderrWithoutPackageJsonWarning) {
+    if (!stdout || stderrWithoutPackageJsonWarning) {
       throw error;
     }
 
@@ -37,7 +39,7 @@ export default async function prettierCheck() {
       /pages[/\\]_app\.js$/,
     ];
 
-    const unformattedFiles = normalizeNewline(error.stdout)
+    const unformattedFiles = normalizeNewline(stdout)
       .split('\n')
       .map((file) =>
         // Make paths relative to the project instead of Preflight, eg:
