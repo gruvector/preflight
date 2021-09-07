@@ -6,12 +6,6 @@ export const title = 'No unused dependencies';
 
 export default async function noUnusedAndMissingDependencies() {
   const ignoredPackagePatterns = [
-    // TODO: Remove this when repl.it fully supports `node:` prefixes
-    // Instructions: https://gist.github.com/karlhorky/1a0f1a02a369e5d5015bdc6365142d77
-    // Repl.it will support node: prefix: https://twitter.com/amasad/status/1390720114832543744
-    '@babel/cli',
-    '@upleveled/babel-plugin-remove-node-prefix',
-
     // Unused dependency detected in create-react-app
     '@testing-library/jest-dom',
     '@testing-library/react',
@@ -31,6 +25,7 @@ export default async function noUnusedAndMissingDependencies() {
     '@upleveled/eslint-config-upleveled',
     'babel-eslint',
     'eslint',
+    'eslint-config-next',
     'eslint-config-react-app',
     'eslint-import-resolver-typescript',
     'eslint-plugin-*',
