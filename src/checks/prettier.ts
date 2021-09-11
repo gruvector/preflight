@@ -59,7 +59,9 @@ export default async function prettierCheck() {
         `Prettier has not been run in the following files:
           ${unformattedFiles.join('\n')}
 
-          If the code in these files looks like it's already been formatted by Prettier, the mismatch may come from inconsisten end of line characters.
+          First, try opening the files above in your editor and saving them. This should format the file with Prettier.
+
+          If the code in these files has already been formatted by Prettier, in very seldom cases, the mismatch may come from inconsistent end of line characters.
 
           Fix this in VS Code like this:
 
