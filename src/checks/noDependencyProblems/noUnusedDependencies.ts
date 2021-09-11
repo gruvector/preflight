@@ -23,6 +23,7 @@ export default async function noUnusedAndMissingDependencies() {
     '@next/eslint-plugin-next',
     '@typescript-eslint/*',
     '@upleveled/eslint-config-upleveled',
+    '@upleveled/eslint-plugin-upleveled',
     'babel-eslint',
     'eslint',
     'eslint-config-next',
