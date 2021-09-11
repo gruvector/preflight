@@ -16,7 +16,7 @@ export default async function eslintCheck() {
     }
 
     throw new Error(
-      `Errors found in files:
+      `ESLint problems found in the following files:
         ${normalizeNewline(stdout)
           .split('\n')
           // Match lines starting with slashes (macOS, Linux) or drive letters (Windows)
@@ -31,6 +31,8 @@ export default async function eslintCheck() {
             return linesWithoutDuplicates;
           }, [])
           .join('\n')}
+
+        Open these files in your editor - there should be problems to fix.
       `,
     );
   }
