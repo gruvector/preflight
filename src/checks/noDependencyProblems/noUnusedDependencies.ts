@@ -20,6 +20,7 @@ export default async function noUnusedAndMissingDependencies() {
     'tailwindcss',
 
     // ESLint configuration
+    '@babel/eslint-parser',
     '@next/eslint-plugin-next',
     '@typescript-eslint/*',
     '@upleveled/eslint-config-upleveled',
