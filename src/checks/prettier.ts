@@ -7,12 +7,8 @@ export const title = 'Prettier';
 
 export default async function prettierCheck() {
   try {
-    // Default Prettier configuration from https://github.com/upleveled/system-setup
-    const defaultConfigFromSystemSetup =
-      '--single-quote true --trailing-comma all';
-
     await execa.command(
-      `yarn --silent prettier --list-different ${process.cwd()}/**/*.{js,jsx,ts,jsx} --ignore-path ${process.cwd()}/.eslintignore ${defaultConfigFromSystemSetup} --end-of-line auto`,
+      `yarn --silent prettier --list-different ${process.cwd()}/**/*.{js,jsx,ts,jsx} --ignore-path ${process.cwd()}/.eslintignore --config ${process.cwd()}/prettier.config.cjs --end-of-line auto`,
       { cwd: dirname(fileURLToPath(import.meta.url)) },
     );
   } catch (error) {
