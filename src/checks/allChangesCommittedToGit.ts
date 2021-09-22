@@ -25,7 +25,7 @@ export default async function allChangesCommittedToGit() {
         onlyYarnLockModifiedOnDrone
           ? `
 
-        The only file with changes is the yarn.lock file. indicates that npm was incorrectly used in addition to Yarn (eg. an "npm install" command was run). To fix this, force regeneration the yarn.lock file locally with the following command and then commit the changes:
+        The only file with changes is the yarn.lock file, indicating that npm was incorrectly used in addition to Yarn (eg. an "npm install" command was run). To fix this, force regeneration of the yarn.lock file locally with the following command and then commit the changes:
 
         ${commandExample('yarn --force')}`
           : ''
