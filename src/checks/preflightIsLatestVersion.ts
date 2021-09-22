@@ -1,4 +1,5 @@
 import { promises as fs } from 'node:fs';
+import os from 'node:os';
 import { URL } from 'node:url';
 import execa from 'execa';
 import semver from 'semver';
@@ -19,7 +20,11 @@ export default async function preflightIsLatestVersion() {
     throw new Error(
       `Your current version of Preflight (${localVersion}) is out of date. The latest version is ${remoteVersion}. Upgrade with:
 
-        ${commandExample('yarn global add @upleveled/preflight')}
+        ${commandExample(
+          `${
+            os.platform() === 'linux' ? 'sudo ' : ''
+          }yarn global add @upleveled/preflight`,
+        )}
       `,
     );
   }
