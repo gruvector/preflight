@@ -15,6 +15,10 @@ export default async function useSinglePackageManager() {
         After you've removed it, you can delete the file with:
 
         ${commandExample('rm <filename>')}
+
+        The presence of this file indicates that npm was incorrectly used in addition to Yarn (eg. an "npm install" command was run). In order to avoid issues with the state of the yarn.lock file, we suggest also forcing regeneration this file with the following command:
+
+        ${commandExample('yarn --force')}
       `,
     );
   }
