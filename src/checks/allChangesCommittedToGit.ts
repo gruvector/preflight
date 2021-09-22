@@ -18,7 +18,7 @@ export default async function allChangesCommittedToGit() {
 
   if (stdout !== '') {
     const onlyYarnLockModifiedOnDrone =
-      stdout.trim() === ` M yarn.lock` && isDrone();
+      stdout.trim() === ` M yarn.lock` && (await isDrone());
     throw new Error(
       `Some changes have not been committed to Git:
         ${stdout}${
