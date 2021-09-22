@@ -1,5 +1,5 @@
 import execa from 'execa';
-import commandExample from '../commandExample';
+import commandExample from '../util/commandExample';
 
 export const title = 'No extraneous files committed to Git';
 

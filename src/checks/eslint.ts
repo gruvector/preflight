@@ -1,5 +1,5 @@
 import execa from 'execa';
-import normalizeNewline from '../normalizeNewline';
+import normalizeNewline from '../util/normalizeNewline';
 
 export const title = 'ESLint';
 

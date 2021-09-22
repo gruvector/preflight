@@ -1,7 +1,7 @@
 import { promises as fs } from 'node:fs';
 import execa from 'execa';
-import commandExample from '../commandExample';
-import normalizeNewline from '../normalizeNewline';
+import commandExample from '../util/commandExample';
+import normalizeNewline from '../util/normalizeNewline';
 
 export const title = 'node_modules/ folder ignored in Git';
 

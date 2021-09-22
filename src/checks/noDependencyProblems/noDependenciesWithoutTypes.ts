@@ -1,7 +1,7 @@
 import { existsSync, promises as fs } from 'node:fs';
 import algoliasearch from 'algoliasearch';
 import pReduce from 'p-reduce';
-import commandExample from '../../commandExample';
+import commandExample from '../../util/commandExample';
 
 const client = algoliasearch(
   // Application ID and API key specific to UpLeveled

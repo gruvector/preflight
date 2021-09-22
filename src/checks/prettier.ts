@@ -1,7 +1,7 @@
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import execa from 'execa';
-import normalizeNewline from '../normalizeNewline';
+import normalizeNewline from '../util/normalizeNewline';
 
 export const title = 'Prettier';
 

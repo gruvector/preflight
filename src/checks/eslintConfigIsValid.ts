@@ -3,7 +3,7 @@ import { createRequire } from 'node:module';
 import execa from 'execa';
 import readdirp from 'readdirp';
 import semver from 'semver';
-import commandExample from '../commandExample';
+import commandExample from '../util/commandExample';
 
 const require = createRequire(`${process.cwd()}/`);
 

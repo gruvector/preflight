@@ -2,7 +2,7 @@ import { promises as fs } from 'node:fs';
 import { URL } from 'node:url';
 import execa from 'execa';
 import semver from 'semver';
-import commandExample from '../commandExample';
+import commandExample from '../util/commandExample';
 
 export const title = 'Preflight is latest version';
 
