@@ -12,6 +12,7 @@ import * as noExtraneousFilesCommittedToGit from './checks/noExtraneousFilesComm
 import * as noSecretsCommittedToGit from './checks/noSecretsCommittedToGit.js';
 import * as preflightIsLatestVersion from './checks/preflightIsLatestVersion.js';
 import * as prettier from './checks/prettier.js';
+import * as projectFolderNameMatchesCorrectFormat from './checks/projectFolderNameMatchesCorrectFormat.js';
 import * as useSinglePackageManager from './checks/useSinglePackageManager.js';
 import { CtxParam } from './types/CtxParam.js';
 import { TaskParam } from './types/TaskParam.js';
@@ -30,8 +31,11 @@ const listrTasks = [
   noExtraneousFilesCommittedToGit,
   noSecretsCommittedToGit,
 
-  // Package Managers
+  // Package managers
   useSinglePackageManager,
+
+  // Project setup
+  projectFolderNameMatchesCorrectFormat,
 
   // ======= Async Tasks =======
   // Dependencies
