@@ -3,7 +3,7 @@ import pMap from 'p-map';
 
 const fixturesTempDir = '__tests__/fixtures/__temp';
 
-async function cloneRepoToFixtures(repoPath: string, fixtureDirName: string) {
+function cloneRepoToFixtures(repoPath: string, fixtureDirName: string) {
   return execa.command(
     `git clone --depth 1 --single-branch --branch=main https://github.com/${repoPath}.git ${fixturesTempDir}/${fixtureDirName} --config core.autocrlf=input`,
   );
@@ -34,7 +34,7 @@ beforeAll(
   async () => {
     await pMap(
       testRepos,
-      async ({ repoPath, dirName }) => cloneRepoToFixtures(repoPath, dirName),
+      ({ repoPath, dirName }) => cloneRepoToFixtures(repoPath, dirName),
       { concurrency: 4 },
     );
 
@@ -42,14 +42,18 @@ beforeAll(
       testRepos,
       async ({ dirName, installCommands }) => {
         if (!installCommands || installCommands.length < 1) {
-          return execa.command('yarn --frozen-lockfile', {
-            cwd: `${fixturesTempDir}/${dirName}`,
-          });
+          // Return array to keep return type uniform with
+          // `return pMap()` below
+          return [
+            await execa.command('yarn --frozen-lockfile', {
+              cwd: `${fixturesTempDir}/${dirName}`,
+            }),
+          ];
         }
 
         return pMap(
           installCommands,
-          async (command) =>
+          (command) =>
             execa.command(command, {
               cwd: `${fixturesTempDir}/${dirName}`,
             }),
