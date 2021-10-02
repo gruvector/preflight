@@ -40,7 +40,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@6d43bfb301c5ed182a59cfa3b21916868c62c405
+        uses: docker/metadata-action@09dffb9c1c47d41d5fd15d675fa8b10b8918da82
         with:
           images: ghcr.io/${{ github.repository }}
           flavor: |
