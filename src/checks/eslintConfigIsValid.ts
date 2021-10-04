@@ -69,7 +69,7 @@ export default async function eslintConfigIsValid() {
   const eslintDisableOccurrences = [];
 
   for await (const { path } of readdirp('.', {
-    directoryFilter: ['!.git', '!node_modules'],
+    directoryFilter: ['!.git', '!.next', '!node_modules'],
     fileFilter: ['*.js', '*.jsx', '*.ts', '*.tsx'],
   })) {
     const fileContents = await fs.readFile(path, 'utf-8');
