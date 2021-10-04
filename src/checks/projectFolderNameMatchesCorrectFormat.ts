@@ -3,7 +3,7 @@ import commandExample from '../util/commandExample';
 
 export const title = 'Project folder name matches correct format';
 
-export default async function projectFolderNameMatchesCorrectFormat() {
+export default function projectFolderNameMatchesCorrectFormat() {
   const currentDirectoryName = path.basename(process.cwd());
   const lowercaseHyphenedDirectoryName = currentDirectoryName
     .toLowerCase()
