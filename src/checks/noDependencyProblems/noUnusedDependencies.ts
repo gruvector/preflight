@@ -40,6 +40,9 @@ export default async function noUnusedAndMissingDependencies() {
     // TypeScript
     'typescript',
     '@types/*',
+
+    // Next.js
+    'sharp',
   ].join(',');
 
   try {
