@@ -38,7 +38,7 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.15.4",
     "@next/eslint-plugin-next": "11.1.2",
-    "@size-limit/preset-small-lib": "5.0.5",
+    "@size-limit/preset-small-lib": "6.0.3",
     "@types/node": "16.11.0",
     "@types/p-map": "2.0.0",
     "@types/semver": "7.3.8",
