@@ -1,4 +1,4 @@
-FROM node:16.10-alpine3.12
+FROM node:16.11-alpine3.12
 WORKDIR /preflight
 COPY ./docker/clone-and-preflight.js ./docker/package.json ./docker/yarn.lock ./
 RUN yarn install --frozen-lockfile
