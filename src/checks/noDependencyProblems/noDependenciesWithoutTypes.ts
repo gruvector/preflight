@@ -89,6 +89,8 @@ export default async function noDependenciesWithoutTypes() {
           .map(([, definitelyTypedPackageName]) => definitelyTypedPackageName)
           .join(' ')}`,
       )}
+
+      If the dependencies above are already in your package.json, check that they have not been incorrectly installed as regular dependencies in the "dependencies" object - they should be installed inside "devDependencies" (using the --dev flag mentioned above). To fix this situation, remove the dependencies and run the command above exactly.
       `,
     );
   }
