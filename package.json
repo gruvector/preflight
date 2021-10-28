@@ -28,7 +28,7 @@
     "build": "tsdx build --format esm --target node",
     "test": "tsdx test",
     "test-local": "rm -rf ./__tests__/fixtures/__temp && yarn test",
-    "lint": "tsdx lint src __tests__ --max-warnings 0",
+    "lint": "eslint . --max-warnings 0",
     "prepare": "yarn build",
     "size": "size-limit",
     "analyze": "size-limit --why",
