@@ -37,13 +37,13 @@
   "peerDependencies": {},
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.16.0",
-    "@next/eslint-plugin-next": "12.0.3",
+    "@next/eslint-plugin-next": "12.0.4",
     "@size-limit/preset-small-lib": "6.0.4",
-    "@types/node": "16.11.7",
+    "@types/node": "16.11.8",
     "@types/p-map": "2.0.0",
     "@types/semver": "7.3.9",
-    "@typescript-eslint/eslint-plugin": "5.3.1",
-    "@typescript-eslint/parser": "5.3.1",
+    "@typescript-eslint/eslint-plugin": "5.4.0",
+    "@typescript-eslint/parser": "5.4.0",
     "@upleveled/eslint-config-upleveled": "2.0.0",
     "@upleveled/eslint-plugin-upleveled": "2.0.0",
     "babel-eslint": "10.1.0",
@@ -64,7 +64,7 @@
     "size-limit": "6.0.4",
     "tsdx": "0.14.1",
     "tslib": "2.3.1",
-    "typescript": "4.4.4"
+    "typescript": "4.5.2"
   },
   "dependencies": {
     "algoliasearch": "4.11.0",
@@ -72,7 +72,7 @@
     "cheerio": "1.0.0-rc.10",
     "depcheck": "1.4.2",
     "execa": "5.1.1",
-    "listr2": "3.13.3",
+    "listr2": "3.13.4",
     "node-fetch": "3.1.0",
     "p-reduce": "3.0.0",
     "prettier": "2.4.1",
