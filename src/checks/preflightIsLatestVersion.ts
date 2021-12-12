@@ -1,14 +1,14 @@
 import { promises as fs } from 'node:fs';
 import os from 'node:os';
 import { URL } from 'node:url';
-import execa from 'execa';
+import { execaCommand } from 'execa';
 import semver from 'semver';
 import commandExample from '../util/commandExample';
 
 export const title = 'Preflight is latest version';
 
 export default async function preflightIsLatestVersion() {
-  const { stdout: remoteVersion } = await execa.command(
+  const { stdout: remoteVersion } = await execaCommand(
     'npm show @upleveled/preflight version',
   );
 

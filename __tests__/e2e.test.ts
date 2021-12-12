@@ -1,10 +1,10 @@
-import execa from 'execa';
+import { execaCommand } from 'execa';
 import pMap from 'p-map';
 
 const fixturesTempDir = '__tests__/fixtures/__temp';
 
 function cloneRepoToFixtures(repoPath: string, fixtureDirName: string) {
-  return execa.command(
+  return execaCommand(
     `git clone --depth 1 --single-branch --branch=main https://github.com/${repoPath}.git ${fixturesTempDir}/${fixtureDirName} --config core.autocrlf=input`,
   );
 }
@@ -45,7 +45,7 @@ beforeAll(
           // Return array to keep return type uniform with
           // `return pMap()` below
           return [
-            await execa.command('yarn --frozen-lockfile', {
+            await execaCommand('yarn --frozen-lockfile', {
               cwd: `${fixturesTempDir}/${dirName}`,
             }),
           ];
@@ -54,7 +54,7 @@ beforeAll(
         return pMap(
           installCommands,
           (command) =>
-            execa.command(command, {
+            execaCommand(command, {
               cwd: `${fixturesTempDir}/${dirName}`,
             }),
           { concurrency: 1 },
@@ -68,7 +68,7 @@ beforeAll(
 );
 
 test('Passes in the react-passing test project', async () => {
-  const { stdout, stderr } = await execa.command(
+  const { stdout, stderr } = await execaCommand(
     `../../../../bin/preflight.js`,
     {
       cwd: `${fixturesTempDir}/react-passing`,

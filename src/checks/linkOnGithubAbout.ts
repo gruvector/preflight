@@ -1,13 +1,13 @@
 import cheerio from 'cheerio';
 import type { Element } from 'domhandler';
-import execa from 'execa';
+import { execaCommand } from 'execa';
 import fetch from 'node-fetch';
 import randomUserAgent from '../util/randomUserAgent';
 
 export const title = 'GitHub repo has deployed project link under About';
 
 export default async function linkOnGithubAbout() {
-  const { stdout } = await execa.command('git remote get-url origin');
+  const { stdout } = await execaCommand('git remote get-url origin');
 
   const repoUrl = stdout
     .replace('git@github.com:', 'https://github.com/')

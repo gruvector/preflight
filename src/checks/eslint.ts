@@ -1,11 +1,11 @@
-import execa from 'execa';
+import { execaCommand } from 'execa';
 import normalizeNewline from '../util/normalizeNewline';
 
 export const title = 'ESLint';
 
 export default async function eslintCheck() {
   try {
-    await execa.command('yarn eslint . --max-warnings 0  --format compact');
+    await execaCommand('yarn eslint . --max-warnings 0  --format compact');
   } catch (error) {
     const { stdout } = error as { stdout: string };
     const lines = stdout.split('\n');

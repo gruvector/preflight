@@ -1,6 +1,6 @@
 import { promises as fs } from 'node:fs';
 import { createRequire } from 'node:module';
-import execa from 'execa';
+import { execaCommand } from 'execa';
 import readdirp from 'readdirp';
 import semver from 'semver';
 import commandExample from '../util/commandExample';
@@ -10,7 +10,7 @@ const require = createRequire(`${process.cwd()}/`);
 export const title = 'ESLint config is latest version';
 
 export default async function eslintConfigIsValid() {
-  const { stdout: remoteVersion } = await execa.command(
+  const { stdout: remoteVersion } = await execaCommand(
     'npm show @upleveled/eslint-config-upleveled version',
   );
 

@@ -1,12 +1,12 @@
 import { promises as fs } from 'node:fs';
-import execa from 'execa';
+import { execaCommand } from 'execa';
 import commandExample from '../util/commandExample';
 import normalizeNewline from '../util/normalizeNewline';
 
 export const title = 'node_modules/ folder ignored in Git';
 
 export default async function nodeModulesIgnoredFromGit() {
-  if ((await execa.command('git ls-files node_modules/')).stdout !== '') {
+  if ((await execaCommand('git ls-files node_modules/')).stdout !== '') {
     throw new Error(
       `node_modules/ folder committed to Git. Remove it using:
 
@@ -15,9 +15,7 @@ export default async function nodeModulesIgnoredFromGit() {
     );
   }
 
-  if (
-    (await execa.command('git ls-files .gitignore')).stdout !== '.gitignore'
-  ) {
+  if ((await execaCommand('git ls-files .gitignore')).stdout !== '.gitignore') {
     throw new Error('.gitignore file not found');
   }
 

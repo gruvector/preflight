@@ -1,8 +1,8 @@
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import execa from 'execa';
+import { execaCommand } from 'execa';
 
-const { stdout: preflightBinPath } = await execa.command(`yarn bin`, {
+const { stdout: preflightBinPath } = await execaCommand(`yarn bin`, {
   cwd: dirname(fileURLToPath(import.meta.url)),
 });
 

@@ -1,10 +1,10 @@
-import execa from 'execa';
+import { execaCommand } from 'execa';
 import commandExample from '../util/commandExample';
 
 export const title = 'No secrets committed to Git';
 
 export default async function noSecretsCommittedToGit() {
-  const { stdout } = await execa.command('git ls-files .env .env*.local');
+  const { stdout } = await execaCommand('git ls-files .env .env*.local');
 
   if (stdout !== '') {
     throw new Error(

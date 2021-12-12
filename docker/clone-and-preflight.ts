@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import execa from 'execa';
+import { execaCommand } from 'execa';
 
 const regex = /^https:\/\/github\.com\/[a-zA-Z0-9\-.]+\/[a-zA-Z0-9\-.]+$/;
 
@@ -14,7 +14,7 @@ $ docker run ghcr.io/upleveled/preflight https://github.com/upleveled/preflight-
 const repoPath = 'repo-to-check';
 
 async function executeCommand(command: string, cwd?: string) {
-  const { all, exitCode } = await execa.command(command, {
+  const { all, exitCode } = await execaCommand(command, {
     cwd,
     all: true,
     reject: false,
