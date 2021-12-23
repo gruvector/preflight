@@ -84,7 +84,8 @@
     "tsdx/**/node-notifier": "10.0.0",
     "tsdx/jest": "27.4.5",
     "tsdx/ts-jest": "27.1.2",
-    "eslint": "8.4.1"
+    "eslint": "8.4.1",
+    "eslint-plugin-react": "7.28.0"
   },
   "jest": {
     "transformIgnorePatterns": [
