@@ -32,6 +32,4 @@ exports[`Passes in the react-passing test project 1`] = `
 [SUCCESS] node_modules/ folder ignored in Git"
 `;
 
-exports[`Passes in the react-passing test project 2`] = `
-""
-`;
+exports[`Passes in the react-passing test project 2`] = `""`;
