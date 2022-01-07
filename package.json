@@ -47,6 +47,7 @@
     "@upleveled/eslint-config-upleveled": "2.1.6",
     "@upleveled/eslint-plugin-upleveled": "2.0.1",
     "babel-eslint": "10.1.0",
+    "babel-jest": "27.4.6",
     "eslint": "8.5.0",
     "eslint-config-react-app": "7.0.0",
     "eslint-import-resolver-typescript": "2.5.0",
@@ -82,7 +83,7 @@
   },
   "resolutions": {
     "tsdx/**/node-notifier": "10.0.0",
-    "tsdx/jest": "27.4.5",
+    "tsdx/jest": "27.4.7",
     "tsdx/ts-jest": "27.1.2",
     "@typescript-eslint/eslint-plugin": "5.8.1",
     "@typescript-eslint/parser": "5.8.1",
