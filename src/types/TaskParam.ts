@@ -1,4 +1,3 @@
-import { ListrTaskWrapper } from 'listr2';
-import { DefaultRenderer } from 'listr2/dist/renderer/default.renderer';
+import { ListrDefaultRenderer, ListrTaskWrapper } from 'listr2';
 
-export type TaskParam = ListrTaskWrapper<any, typeof DefaultRenderer>;
+export type TaskParam = ListrTaskWrapper<any, ListrDefaultRenderer>;
