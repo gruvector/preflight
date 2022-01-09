@@ -4348,9 +4348,10 @@ delayed-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
 
-depcheck@upleveled/depcheck#45494b8eec5fa6b4d4c512f2b069f8ba3111ab23:
-  version "0.0.1"
-  resolved "https://codeload.github.com/upleveled/depcheck/tar.gz/45494b8eec5fa6b4d4c512f2b069f8ba3111ab23"
+depcheck@1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/depcheck/-/depcheck-1.4.3.tgz#faa4c143921f3fe25d5a7a633f9864327c250843"
+  integrity sha512-vy8xe1tlLFu7t4jFyoirMmOR7x7N601ubU9Gkifyr9z8rjBFtEdWHDBMqXyk6OkK+94NXutzddVXJuo0JlUQKQ==
   dependencies:
     "@babel/parser" "7.16.4"
     "@babel/traverse" "^7.12.5"
