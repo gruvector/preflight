@@ -71,7 +71,7 @@
     "algoliasearch": "4.12.0",
     "chalk": "5.0.0",
     "cheerio": "1.0.0-rc.10",
-    "depcheck": "upleveled/depcheck",
+    "depcheck": "upleveled/depcheck#45494b8eec5fa6b4d4c512f2b069f8ba3111ab23",
     "execa": "6.0.0",
     "listr2": "4.0.0",
     "node-fetch": "3.1.0",
