@@ -10,11 +10,7 @@ export default async function noUnusedAndMissingDependencies() {
     '@graphql-codegen/cli',
 
     // Unused dependency detected in create-react-app
-    '@testing-library/jest-dom',
-    '@testing-library/react',
     '@testing-library/user-event',
-    'react-scripts',
-    'web-vitals',
 
     // Tailwind CSS
     '@tailwindcss/jit',
@@ -23,17 +19,8 @@ export default async function noUnusedAndMissingDependencies() {
     'tailwindcss',
 
     // ESLint configuration
-    '@babel/eslint-parser',
-    '@next/eslint-plugin-next',
-    '@typescript-eslint/*',
-    '@upleveled/eslint-config-upleveled',
-    '@upleveled/eslint-plugin-upleveled',
     'babel-eslint',
-    'eslint',
     'eslint-config-next',
-    'eslint-config-react-app',
-    'eslint-import-resolver-typescript',
-    'eslint-plugin-*',
 
     // Testing
     'babel-jest',
