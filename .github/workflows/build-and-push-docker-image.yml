@@ -33,7 +33,7 @@ jobs:
 
       # Publish to container registry
       - name: Log in to the Container registry
-        uses: docker/login-action@5fcefb941de79536616e9422226e33fd39f1706f
+        uses: docker/login-action@7948fffc4991dccc0bd25c3968d21aa61369a5ad
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
