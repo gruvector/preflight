@@ -34,7 +34,7 @@ export default async function eslintConfigIsValid() {
 
   if (semver.gt(remoteVersion, localVersion)) {
     throw new Error(
-      `Your current version of the UpLeveled ESLint config (${localVersion}) is out of date. The latest version is ${remoteVersion}. Upgrade by running the first line of the install instructions on https://www.npmjs.com/package/@upleveled/eslint-config-upleveled`,
+      `Your current version of the UpLeveled ESLint config (${localVersion}) is out of date. The latest version is ${remoteVersion}. Upgrade by running all lines of the install instructions on https://www.npmjs.com/package/@upleveled/eslint-config-upleveled`,
     );
   }
 
