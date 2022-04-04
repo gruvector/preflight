@@ -1,3 +1,3 @@
 import { ListrContext } from 'listr2';
 
-export type CtxParam = ListrContext & {};
+export type CtxParam = ListrContext;
