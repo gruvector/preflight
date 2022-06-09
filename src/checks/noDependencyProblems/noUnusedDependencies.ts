@@ -29,7 +29,9 @@ export default async function noUnusedAndMissingDependencies() {
     'babel-jest',
     'cypress',
     'jest',
+    'jest-environment-jsdom',
     'jest-puppeteer',
+    'playwright',
     'puppeteer',
 
     // TypeScript
