@@ -78,7 +78,7 @@
     "cheerio": "1.0.0-rc.12",
     "depcheck": "1.4.3",
     "execa": "6.1.0",
-    "listr2": "4.0.5",
+    "listr2": "5.0.1",
     "node-fetch": "3.2.9",
     "p-reduce": "3.0.0",
     "prettier": "2.7.1",
