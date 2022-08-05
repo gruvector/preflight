@@ -39,7 +39,7 @@
     "@babel/eslint-parser": "7.18.9",
     "@babel/plugin-transform-modules-commonjs": "7.18.6",
     "@next/eslint-plugin-next": "12.2.4",
-    "@size-limit/file": "7.0.8",
+    "@size-limit/file": "8.0.0",
     "@types/node": "18.6.4",
     "@types/p-map": "2.0.0",
     "@types/react": "18.0.15",
