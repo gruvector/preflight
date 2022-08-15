@@ -30,7 +30,7 @@ jobs:
           node-version: '18'
 
       - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1.8.17
+        uses: bahmutov/npm-install@v1.8.21
 
       - name: Lint
         run: yarn lint
