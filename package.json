@@ -89,7 +89,7 @@
   "resolutions": {
     "tsdx/**/node-notifier": "10.0.1",
     "tsdx/jest": "29.0.3",
-    "tsdx/ts-jest": "28.0.8",
+    "tsdx/ts-jest": "29.0.1",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.37.0",
     "eslint": "8.23.1",
