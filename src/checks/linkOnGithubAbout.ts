@@ -32,7 +32,7 @@ export default async function linkOnGithubAbout() {
 
   if (!urlInAboutSection) {
     throw new Error(
-      `Deployed project link not found in About section on ${repoUrl}. Click on the cog symbol to the right of the About heading and paste the Repl.it / Netlify / Heroku link in the Website box.`,
+      `Deployed project link not found in About section on ${repoUrl}. Click on the cog symbol to the right of the About heading and paste the Repl.it / Netlify / Fly.io link in the Website box.`,
     );
   }
 
