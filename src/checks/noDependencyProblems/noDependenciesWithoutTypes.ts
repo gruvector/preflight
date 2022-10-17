@@ -68,7 +68,16 @@ export default async function noDependenciesWithoutTypes() {
 
       if (definitelyTypedPackageName) {
         // If a matching `@types/<package name>` has been already installed in devDependencies, bail out
-        if (Object.keys(devDependencies).includes(definitelyTypedPackageName)) {
+        if (
+          Object.keys({
+            ...devDependencies,
+            // Allow types packages as regular dependencies for deployment
+            // to Fly.io - moving all @types/<pkg name> packages from
+            // devDependencies to dependencies is a step that we recommend
+            // in our Fly.io deployment guide as of October 2022
+            ...dependencies,
+          }).includes(definitelyTypedPackageName)
+        ) {
           return filteredDependencies;
         }
 
