@@ -33,20 +33,20 @@ jobs:
 
       # Publish to container registry
       - name: Log in to the Container registry
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@57396166ad8aefe6098280995947635806a0e6ea
+        uses: docker/metadata-action@v4
         with:
           images: ghcr.io/${{ github.repository }}
           flavor: |
             latest=true
       - name: Build and push Docker image
-        uses: docker/build-push-action@6e95f19fb8c9e00a1a391941edbc0ae30c1799f7
+        uses: docker/build-push-action@v3
         with:
           context: .
           push: true
