@@ -16,22 +16,6 @@ yarn global add @upleveled/preflight
 preflight
 ```
 
-## Install and Run on [repl.it](https://repl.it/)
-
-To run on [repl.it](https://repl.it/) (or any other environment that doesn't have a compatible version of Node.js), install Preflight as follows:
-
-```bash
-yarn global add @upleveled/preflight --ignore-engines
-```
-
-Then you can use the path to the global `node` and `preflight` modules to run it:
-
-```bash
-npx node@16 /home/runner/.config/yarn/global/node_modules/@upleveled/preflight/dist/preflight.esm.js
-```
-
-More information here: https://github.com/upleveled/preflight/issues/17
-
 ## Install and Run with Docker
 
 Pull and run the image, along with a URL to the GitHub repository that you want to test:
