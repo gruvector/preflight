@@ -34,13 +34,9 @@ jobs:
 
       - name: Lint
         run: yarn lint
-        env:
-          SKIP_SAFEQL: true
 
       - name: Build
         run: yarn build
 
       - name: Test
         run: yarn test --ci --coverage --maxWorkers=2
-        env:
-          SKIP_SAFEQL: true

@@ -47,7 +47,7 @@
     "@types/semver": "7.3.13",
     "@typescript-eslint/eslint-plugin": "5.41.0",
     "@typescript-eslint/parser": "5.41.0",
-    "@upleveled/eslint-config-upleveled": "3.2.0",
+    "@upleveled/eslint-config-upleveled": "3.3.0",
     "@upleveled/eslint-plugin-upleveled": "2.1.6",
     "babel-eslint": "10.1.0",
     "babel-jest": "29.2.2",
