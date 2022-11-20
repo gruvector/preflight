@@ -1,9 +1,8 @@
 {
   "extends": "../tsconfig.json",
-  "include": [".eslintrc.cjs", "./**/*.js", "./**/*.ts"],
+  "include": [".eslintrc.cjs", "./**/*.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "rootDir": ".",
-    "noEmit": false
+    "rootDir": "."
   }
 }

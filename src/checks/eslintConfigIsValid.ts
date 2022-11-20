@@ -43,9 +43,12 @@ export default async function eslintConfigIsValid() {
   try {
     eslintConfigMatches =
       (await fs.readFile('./.eslintrc.cjs', 'utf-8')).trim() ===
-      `module.exports = {
+      `/** @type {import('@typescript-eslint/utils').TSESLint.Linter.Config} */
+const config = {
   extends: ['@upleveled/upleveled'],
-};`;
+};
+
+module.exports = config;`;
   } catch (err) {
     throw new Error(
       `Error reading your .eslintrc.cjs file. Please reinstall the config using the instructions on https://www.npmjs.com/package/@upleveled/eslint-config-upleveled
