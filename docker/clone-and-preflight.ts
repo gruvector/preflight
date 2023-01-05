@@ -33,7 +33,7 @@ await executeCommand(
 );
 
 if (process.argv[3]) {
-  await executeCommand(`git switch ${process.argv[3]}`);
+  await executeCommand(`git switch ${process.argv[3]}`, repoPath);
 }
 
 await executeCommand('yarn install --ignore-scripts', repoPath);
