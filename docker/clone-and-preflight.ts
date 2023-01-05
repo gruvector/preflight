@@ -29,7 +29,11 @@ async function executeCommand(command: string, cwd?: string) {
 }
 
 await executeCommand(
-  `git clone --depth 1 --single-branch ${process.argv[2]} ${repoPath} --config core.autocrlf=input`,
+  `git clone --depth 1 ${
+    !process.argv[3] ? '' : `--branch ${process.argv[3]}`
+  } --single-branch ${
+    process.argv[2]
+  } ${repoPath} --config core.autocrlf=input`,
 );
 
 if (process.argv[3]) {
