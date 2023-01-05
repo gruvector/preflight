@@ -18,9 +18,13 @@ preflight
 
 ## Install and Run with Docker
 
-Pull and run the image, along with a URL to the GitHub repository that you want to test:
-
 ```bash
+# Pull the image
 docker pull ghcr.io/upleveled/preflight
+
+# Run the image against a GitHub repo URL
 docker run ghcr.io/upleveled/preflight https://github.com/upleveled/preflight-test-project-react-passing
+
+# Or run the image against a specific branch in a GitHub repo URL
+docker run ghcr.io/upleveled/preflight https://github.com/upleveled/preflight-test-project-react-passing fix-tests
 ```

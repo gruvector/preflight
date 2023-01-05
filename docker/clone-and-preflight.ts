@@ -32,6 +32,10 @@ await executeCommand(
   `git clone --depth 1 --single-branch ${process.argv[2]} ${repoPath} --config core.autocrlf=input`,
 );
 
+if (process.argv[3]) {
+  await executeCommand(`git switch ${process.argv[3]}`);
+}
+
 await executeCommand('yarn install --ignore-scripts', repoPath);
 const preflightOutput = await executeCommand('preflight', repoPath);
 
