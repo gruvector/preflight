@@ -2,6 +2,7 @@ import { existsSync, promises as fs } from 'node:fs';
 import algoliasearch from 'algoliasearch';
 import pReduce from 'p-reduce';
 import commandExample from '../../util/commandExample';
+import { projectPackageJson } from '../../util/packageJson';
 
 const client = algoliasearch(
   // Application ID and API key specific to UpLeveled
@@ -29,9 +30,7 @@ export const title = 'No dependencies without types';
 //
 // https://learn.upleveled.io/courses/btcmp-l-webfs-gen-0/modules/122-cheatsheet-css-in-js/#eslint-errors-with-styled-components
 export default async function noDependenciesWithoutTypes() {
-  const { devDependencies = {}, dependencies = {} } = JSON.parse(
-    await fs.readFile('package.json', 'utf-8'),
-  );
+  const { devDependencies = {}, dependencies = {} } = projectPackageJson;
 
   const dependenciesWithMissingTypes = await pReduce(
     Object.keys(dependencies),

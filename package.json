@@ -32,7 +32,8 @@
     "prepare": "yarn build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "build-docker-ts": "tsc --project docker/tsconfig.build.json"
+    "build-docker-ts": "tsc --project docker/tsconfig.build.json",
+    "postinstall": "patch-package"
   },
   "peerDependencies": {},
   "devDependencies": {
@@ -68,6 +69,8 @@
     "eslint-plugin-testing-library": "5.9.1",
     "eslint-plugin-unicorn": "45.0.2",
     "p-map": "5.5.0",
+    "patch-package": "6.5.1",
+    "postinstall-postinstall": "2.1.0",
     "size-limit": "8.1.0",
     "tsdx": "0.14.1",
     "tslib": "2.4.1",

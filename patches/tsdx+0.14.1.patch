@@ -1,0 +1,13 @@
+diff --git a/node_modules/tsdx/dist/createJestConfig.js b/node_modules/tsdx/dist/createJestConfig.js
+index ec95298..03bf4bf 100644
+--- a/node_modules/tsdx/dist/createJestConfig.js
++++ b/node_modules/tsdx/dist/createJestConfig.js
+@@ -10,7 +10,7 @@ function createJestConfig(_, rootDir) {
+         moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+         collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}'],
+         testMatch: ['<rootDir>/**/*.(spec|test).{ts,tsx,js,jsx}'],
+-        testURL: 'http://localhost',
++        testEnvironmentOptions: { url: 'http://localhost' },
+         rootDir,
+         watchPlugins: [
+             require.resolve('jest-watch-typeahead/filename'),

@@ -1,9 +1,8 @@
-import { promises as fs } from 'node:fs';
 import os from 'node:os';
-import { URL } from 'node:url';
 import { execaCommand } from 'execa';
 import semver from 'semver';
 import commandExample from '../util/commandExample';
+import { preflightPackageJson } from '../util/packageJson';
 
 export const title = 'Preflight is latest version';
 
@@ -12,13 +11,11 @@ export default async function preflightIsLatestVersion() {
     'npm show @upleveled/preflight version',
   );
 
-  const localVersion = JSON.parse(
-    await fs.readFile(new URL('../package.json', import.meta.url), 'utf-8'),
-  ).version;
-
-  if (semver.gt(remoteVersion, localVersion)) {
+  if (semver.gt(remoteVersion, preflightPackageJson.version)) {
     throw new Error(
-      `Your current version of Preflight (${localVersion}) is out of date. The latest version is ${remoteVersion}. Upgrade with:
+      `Your current version of Preflight (${
+        preflightPackageJson.version
+      }) is out of date. The latest version is ${remoteVersion}. Upgrade with:
 
         ${commandExample(
           `${
