@@ -80,7 +80,7 @@
     "chalk": "5.2.0",
     "cheerio": "1.0.0-rc.12",
     "depcheck": "1.4.3",
-    "execa": "6.1.0",
+    "execa": "7.0.0",
     "listr2": "5.0.7",
     "node-fetch": "3.3.0",
     "p-reduce": "3.0.0",

@@ -9,6 +9,6 @@
   ],
   "type": "module",
   "dependencies": {
-    "execa": "6.1.0"
+    "execa": "7.0.0"
   }
 }
