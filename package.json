@@ -1,6 +1,6 @@
 {
   "name": "@upleveled/preflight",
-  "version": "1.23.2",
+  "version": "1.23.3",
   "author": "UpLeveled (https://github.com/upleveled)",
   "contributors": [
     "José Fernando Höwer Barbosa <josehowerupn@gmail.com>",
@@ -50,7 +50,6 @@
     "@typescript-eslint/parser": "5.57.1",
     "@upleveled/eslint-config-upleveled": "4.0.2",
     "@upleveled/eslint-plugin-upleveled": "2.1.6",
-    "@babel/eslint-parser": "7.21.3",
     "babel-jest": "29.5.0",
     "eslint": "8.37.0",
     "eslint-config-react-app": "7.0.1",
