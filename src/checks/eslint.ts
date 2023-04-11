@@ -11,7 +11,7 @@ export default async function eslintCheck() {
     const lines = stdout.split('\n');
 
     // If no ESLint problems detected, throw the error
-    if (!/^\d+ problems?$/.test(lines[lines.length - 2])) {
+    if (!/^\d+ problems?$/.test(lines[lines.length - 2]!)) {
       throw error;
     }
 

@@ -75,42 +75,43 @@ export default async function noUnusedAndMissingDependencies() {
       `);
     }
 
-    /**
-     * Temporary workaround to filter out @upleveled/eslint-config-upleveled peer dependencies
-     * not listed in `package.json`, which are flagged as missing dependencies by depcheck
-     *
-     * TODO: Remove this variable once this depcheck issue is fixed:
-     * https://github.com/depcheck/depcheck/issues/789
-     */
-    const missingDependenciesStdoutFiltered = missingDependenciesStdout
-      .split('\n')
-      .filter((missingDependency) => {
-        return !(
-          missingDependency.includes('./.eslintrc.cjs') &&
-          [
-            '@next/eslint-plugin-next',
-            '@typescript-eslint/eslint-plugin',
-            '@typescript-eslint/parser',
-            '@upleveled/eslint-plugin-upleveled',
-            'eslint-config-react-app',
-            'eslint-import-resolver-typescript',
-            'eslint-plugin-import',
-            'eslint-plugin-jsx-a11y',
-            'eslint-plugin-jsx-expressions',
-            'eslint-plugin-react-hooks',
-            'eslint-plugin-react',
-            'eslint-plugin-security',
-            'eslint-plugin-sonarjs',
-            'eslint-plugin-unicorn',
-          ].some((excludedDependency) =>
-            missingDependency.includes(excludedDependency),
-          )
-        );
-      })
-      .join('\n');
+    if (missingDependenciesStdout) {
+      /**
+       * Temporary workaround to filter out @upleveled/eslint-config-upleveled peer dependencies
+       * not listed in `package.json`, which are flagged as missing dependencies by depcheck
+       *
+       * TODO: Remove this variable once this depcheck issue is fixed:
+       * https://github.com/depcheck/depcheck/issues/789
+       */
+      const missingDependenciesStdoutFiltered = missingDependenciesStdout
+        .split('\n')
+        .filter((missingDependency) => {
+          return !(
+            missingDependency.includes('./.eslintrc.cjs') &&
+            [
+              '@next/eslint-plugin-next',
+              '@typescript-eslint/eslint-plugin',
+              '@typescript-eslint/parser',
+              '@upleveled/eslint-plugin-upleveled',
+              'eslint-config-react-app',
+              'eslint-import-resolver-typescript',
+              'eslint-plugin-import',
+              'eslint-plugin-jsx-a11y',
+              'eslint-plugin-jsx-expressions',
+              'eslint-plugin-react-hooks',
+              'eslint-plugin-react',
+              'eslint-plugin-security',
+              'eslint-plugin-sonarjs',
+              'eslint-plugin-unicorn',
+            ].some((excludedDependency) =>
+              missingDependency.includes(excludedDependency),
+            )
+          );
+        })
+        .join('\n');
 
-    if (missingDependenciesStdoutFiltered) {
-      messages.push(`Missing dependencies found:
+      if (missingDependenciesStdoutFiltered) {
+        messages.push(`Missing dependencies found:
         ${missingDependenciesStdoutFiltered
           .split('\n')
           .filter((str: string) => str.includes('* '))
@@ -120,6 +121,7 @@ export default async function noUnusedAndMissingDependencies() {
 
         ${commandExample('pnpm add <dependency name here>')}
       `);
+      }
     }
 
     if (messages.length > 0) throw new Error(messages.join('\n\n'));
