@@ -2,34 +2,34 @@
 
 exports[`Passes in the react-passing test project 1`] = `
 "🚀 UpLeveled Preflight
-[STARTED] All changes committed to Git
-[STARTED] ESLint
-[STARTED] ESLint config is latest version
-[STARTED] GitHub repo has deployed project link under About
-[STARTED] No dependencies without types
-[STARTED] No dependency problems
-[STARTED] No extraneous files committed to Git
-[STARTED] No secrets committed to Git
-[STARTED] No unused dependencies
-[STARTED] Preflight is latest version
-[STARTED] Prettier
-[STARTED] Project folder name matches correct format
-[STARTED] Use single package manager
-[STARTED] node_modules/ folder ignored in Git
-[SUCCESS] All changes committed to Git
-[SUCCESS] ESLint
-[SUCCESS] ESLint config is latest version
-[SUCCESS] GitHub repo has deployed project link under About
-[SUCCESS] No dependencies without types
-[SUCCESS] No dependency problems
-[SUCCESS] No extraneous files committed to Git
-[SUCCESS] No secrets committed to Git
-[SUCCESS] No unused dependencies
-[SUCCESS] Preflight is latest version
-[SUCCESS] Prettier
-[SUCCESS] Project folder name matches correct format
-[SUCCESS] Use single package manager
-[SUCCESS] node_modules/ folder ignored in Git"
+[32m[COMPLETED][39m All changes committed to Git
+[32m[COMPLETED][39m ESLint
+[32m[COMPLETED][39m ESLint config is latest version
+[32m[COMPLETED][39m GitHub repo has deployed project link under About
+[32m[COMPLETED][39m No dependencies without types
+[32m[COMPLETED][39m No dependency problems
+[32m[COMPLETED][39m No extraneous files committed to Git
+[32m[COMPLETED][39m No secrets committed to Git
+[32m[COMPLETED][39m No unused dependencies
+[32m[COMPLETED][39m Preflight is latest version
+[32m[COMPLETED][39m Prettier
+[32m[COMPLETED][39m Project folder name matches correct format
+[32m[COMPLETED][39m Use single package manager
+[32m[COMPLETED][39m node_modules/ folder ignored in Git
+[33m[STARTED][39m All changes committed to Git
+[33m[STARTED][39m ESLint
+[33m[STARTED][39m ESLint config is latest version
+[33m[STARTED][39m GitHub repo has deployed project link under About
+[33m[STARTED][39m No dependencies without types
+[33m[STARTED][39m No dependency problems
+[33m[STARTED][39m No extraneous files committed to Git
+[33m[STARTED][39m No secrets committed to Git
+[33m[STARTED][39m No unused dependencies
+[33m[STARTED][39m Preflight is latest version
+[33m[STARTED][39m Prettier
+[33m[STARTED][39m Project folder name matches correct format
+[33m[STARTED][39m Use single package manager
+[33m[STARTED][39m node_modules/ folder ignored in Git"
 `;
 
 exports[`Passes in the react-passing test project 2`] = `""`;

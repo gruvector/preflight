@@ -87,5 +87,6 @@ await new Listr(listrTasks, {
     removeEmptyLines: false,
     formatOutput: 'wrap',
   },
+  fallbackRenderer: 'verbose',
   concurrent: 5,
 }).run();
