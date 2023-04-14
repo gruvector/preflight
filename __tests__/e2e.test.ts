@@ -82,7 +82,8 @@ test('Passes in the react-passing test project', async () => {
       if (b.includes('UpLeveled Preflight')) return 1;
       return a < b ? -1 : 1;
     })
-    .join('\n');
+    .join('\n')
+    .trim();
 
   expect(stdoutSortedWithoutVersionNumber).toMatchSnapshot();
   expect(stderr.replace(/^\(node:\d+\) /, '')).toMatchSnapshot();
