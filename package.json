@@ -51,7 +51,7 @@
     "babel-jest": "29.5.0",
     "eslint": "8.38.0",
     "eslint-config-react-app": "7.0.1",
-    "eslint-config-upleveled": "4.0.12",
+    "eslint-config-upleveled": "4.0.13",
     "eslint-import-resolver-typescript": "3.5.5",
     "eslint-plugin-cypress": "2.13.2",
     "eslint-plugin-flowtype": "8.0.3",

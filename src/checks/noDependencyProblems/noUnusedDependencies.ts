@@ -77,7 +77,7 @@ export default async function noUnusedAndMissingDependencies() {
 
     if (missingDependenciesStdout) {
       /**
-       * Temporary workaround to filter out @upleveled/eslint-config-upleveled peer dependencies
+       * Temporary workaround to filter out eslint-config-upleveled peer dependencies
        * not listed in `package.json`, which are flagged as missing dependencies by depcheck
        *
        * TODO: Remove this variable once this depcheck issue is fixed:
@@ -92,7 +92,7 @@ export default async function noUnusedAndMissingDependencies() {
               '@next/eslint-plugin-next',
               '@typescript-eslint/eslint-plugin',
               '@typescript-eslint/parser',
-              '@upleveled/eslint-plugin-upleveled',
+              'eslint-plugin-upleveled',
               'eslint-config-react-app',
               'eslint-import-resolver-typescript',
               'eslint-plugin-import',
