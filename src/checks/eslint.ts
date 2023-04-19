@@ -32,7 +32,7 @@ export default async function eslintCheck() {
           }, [])
           .join('\n')}
 
-        Open these files in your editor - there should be problems to fix.
+        Open these files in your editor - there should be problems to fix
       `,
     );
   }
