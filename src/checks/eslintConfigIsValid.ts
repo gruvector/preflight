@@ -6,7 +6,7 @@ import semver from 'semver';
 
 const require = createRequire(`${process.cwd()}/`);
 
-export const title = 'UpLeveled ESLint Config is latest version';
+export const title = 'ESLint Config is latest version';
 
 export default async function eslintConfigIsValid() {
   const { stdout: remoteVersion } = await execaCommand(
