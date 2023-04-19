@@ -15,7 +15,7 @@ export default async function preflightIsLatestVersion() {
     throw new Error(
       `Your current version of Preflight (${
         preflightPackageJson.version
-      }) is out of date. The latest version is ${remoteVersion}. Upgrade with:
+      }) is older than the latest version ${remoteVersion} - upgrade with:
 
         ${commandExample(
           `${
