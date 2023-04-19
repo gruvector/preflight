@@ -6,7 +6,7 @@ import semver from 'semver';
 
 const require = createRequire(`${process.cwd()}/`);
 
-export const title = 'ESLint config is latest version';
+export const title = 'UpLeveled ESLint Config is latest version';
 
 export default async function eslintConfigIsValid() {
   const { stdout: remoteVersion } = await execaCommand(
@@ -27,14 +27,14 @@ export default async function eslintConfigIsValid() {
 
   if (typeof localVersion === 'undefined') {
     throw new Error(
-      `The UpLeveled ESLint config has not been installed. Please install using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
+      `The UpLeveled ESLint Config has not been installed. Please install using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,
     );
   }
 
   if (semver.gt(remoteVersion, localVersion)) {
     throw new Error(
-      `Your current version of the UpLeveled ESLint config (${localVersion}) is out of date. The latest version is ${remoteVersion}. Upgrade by running all lines of the install instructions on https://www.npmjs.com/package/eslint-config-upleveled
+      `Your current version of the UpLeveled ESLint Config (${localVersion}) is out of date. The latest version is ${remoteVersion}. Upgrade by running all lines of the install instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,
     );
   }
