@@ -27,14 +27,14 @@ export default async function eslintConfigIsValid() {
 
   if (typeof localVersion === 'undefined') {
     throw new Error(
-      `The UpLeveled ESLint Config has not been installed. Please install using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
+      `The UpLeveled ESLint Config has not been installed - please install using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,
     );
   }
 
   if (semver.gt(remoteVersion, localVersion)) {
     throw new Error(
-      `Your current version of the UpLeveled ESLint Config (${localVersion}) is out of date. The latest version is ${remoteVersion}. Upgrade by running all lines of the install instructions on https://www.npmjs.com/package/eslint-config-upleveled
+      `Your current version of the UpLeveled ESLint Config (${localVersion}) is out of date - the latest version is ${remoteVersion}. Upgrade by running all lines of the install instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,
     );
   }
@@ -52,14 +52,14 @@ const config = {
 module.exports = config;`;
   } catch (err) {
     throw new Error(
-      `Error reading your .eslintrc.cjs file. Please reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
+      `Error reading your .eslintrc.cjs file - please reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,
     );
   }
 
   if (!eslintConfigMatches) {
     throw new Error(
-      `Your ESLint config file .eslintrc.cjs does not match the configuration file template. Please reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
+      `Your ESLint config file .eslintrc.cjs does not match the configuration file template - please reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,
     );
   }
@@ -81,7 +81,7 @@ module.exports = config;`;
       `ESLint has been disabled in the following files:
         ${eslintDisableOccurrences.join('\n')}
 
-        Remove all comments disabling or modifying ESLint rule configuration (eg. eslint-disable and eslint-disable-next-line comments) and fix the problems.
+        Remove all comments disabling or modifying ESLint rule configuration (eg. eslint-disable and eslint-disable-next-line comments) and fix the problems
       `,
     );
   }
