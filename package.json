@@ -1,13 +1,13 @@
 {
   "name": "@upleveled/preflight",
   "version": "1.23.8",
+  "repository": "upleveled/preflight",
+  "license": "MIT",
   "author": "UpLeveled (https://github.com/upleveled)",
   "contributors": [
     "José Fernando Höwer Barbosa <josehowerupn@gmail.com>",
     "Karl Horky <karl.horky@gmail.com>"
   ],
-  "repository": "upleveled/preflight",
-  "license": "MIT",
   "type": "module",
   "main": "dist/preflight.esm.js",
   "module": "dist/preflight.esm.js",
@@ -16,7 +16,7 @@
     "preflight": "bin/preflight.js"
   },
   "files": [
-    "bin",
+    "bin/preflight.js",
     "dist",
     "src"
   ],
