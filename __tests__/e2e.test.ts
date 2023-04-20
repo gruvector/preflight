@@ -23,7 +23,7 @@ const testRepos: Repo[] = [
     // a package first, pass an installCommands array like this:
     // installCommands: [
     //   // To install the latest version of the ESLint config
-    //   'yarn upgrade --latest @upleveled/eslint-config-upleveled',
+    //   'pnpm upgrade --latest @upleveled/eslint-config-upleveled',
     //   // Avoid any issues with uncommitted files
     //   'git reset --hard HEAD',
     // ],
@@ -45,7 +45,7 @@ beforeAll(
           // Return array to keep return type uniform with
           // `return pMap()` below
           return [
-            await execaCommand('yarn --frozen-lockfile', {
+            await execaCommand('pnpm install --frozen-lockfile', {
               cwd: `${fixturesTempDir}/${dirName}`,
             }),
           ];
@@ -63,7 +63,7 @@ beforeAll(
       { concurrency: 1 },
     );
   },
-  // 5 minute timeout for Yarn installation inside test repos
+  // 5 minute timeout for pnpm installation inside test repos
   300000,
 );
 

@@ -20,27 +20,45 @@
     "dist",
     "src"
   ],
-  "engines": {
-    "node": ">=14"
-  },
   "scripts": {
-    "start": "tsdx watch --format esm --target node",
-    "build": "tsdx build --format esm --target node",
-    "test": "tsdx test",
-    "test-local": "rm -rf ./__tests__/fixtures/__temp && yarn test",
-    "lint": "eslint . --max-warnings 0",
-    "prepare": "yarn build",
-    "size": "size-limit",
     "analyze": "size-limit --why",
+    "build": "tsdx build --format esm --target node",
     "build-docker-ts": "tsc --project docker/tsconfig.build.json",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "lint": "eslint . --max-warnings 0",
+    "prepare": "pnpm build",
+    "size": "size-limit",
+    "start": "tsdx watch --format esm --target node",
+    "test": "tsdx test",
+    "test-local": "rm -rf ./__tests__/fixtures/__temp && pnpm test"
   },
-  "peerDependencies": {},
+  "jest": {
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\](?!aggregate-error|clean-stack|escape-string-regexp|execa|human-signals|indent-string|is-stream|mimic-fn|npm-run-path|onetime|p-map|path-key|strip-final-newline).+\\.(js|jsx)$"
+    ]
+  },
+  "dependencies": {
+    "algoliasearch": "4.17.0",
+    "chalk": "5.2.0",
+    "cheerio": "1.0.0-rc.12",
+    "depcheck": "1.4.3",
+    "execa": "7.1.1",
+    "listr2": "6.2.0",
+    "node-fetch": "3.3.1",
+    "p-reduce": "3.0.0",
+    "patch-package": "6.5.1",
+    "prettier": "2.8.7",
+    "readdirp": "3.6.0",
+    "semver": "7.4.0",
+    "top-user-agents": "1.0.52"
+  },
   "devDependencies": {
     "@babel/eslint-parser": "7.21.3",
     "@babel/plugin-transform-modules-commonjs": "7.21.2",
     "@next/eslint-plugin-next": "13.3.0",
     "@size-limit/file": "8.2.4",
+    "@types/domhandler": "2.4.2",
+    "@types/jest": "29.5.0",
     "@types/node": "18.15.11",
     "@types/p-map": "2.0.0",
     "@types/react": "18.0.35",
@@ -51,7 +69,7 @@
     "babel-jest": "29.5.0",
     "eslint": "8.38.0",
     "eslint-config-react-app": "7.0.1",
-    "eslint-config-upleveled": "4.0.13",
+    "eslint-config-upleveled": "4.1.0",
     "eslint-import-resolver-typescript": "3.5.5",
     "eslint-plugin-cypress": "2.13.2",
     "eslint-plugin-flowtype": "8.0.3",
@@ -74,37 +92,15 @@
     "tslib": "2.5.0",
     "typescript": "5.0.4"
   },
-  "dependencies": {
-    "algoliasearch": "4.17.0",
-    "chalk": "5.2.0",
-    "cheerio": "1.0.0-rc.12",
-    "depcheck": "1.4.3",
-    "execa": "7.1.1",
-    "listr2": "6.3.1",
-    "node-fetch": "3.3.1",
-    "p-reduce": "3.0.0",
-    "patch-package": "6.5.1",
-    "prettier": "2.8.7",
-    "readdirp": "3.6.0",
-    "semver": "7.4.0",
-    "top-user-agents": "1.0.52"
+  "engines": {
+    "node": ">=14"
   },
-  "resolutions": {
-    "tsdx/**/node-notifier": "10.0.1",
-    "tsdx/jest": "29.5.0",
-    "tsdx/ts-jest": "29.1.0",
-    "tsdx/typescript": "5.0.4",
-    "@typescript-eslint/eslint-plugin": "5.58.0",
-    "@typescript-eslint/parser": "5.58.0",
-    "eslint": "8.38.0",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-jsx-a11y": "6.7.1",
-    "eslint-plugin-react": "7.32.2",
-    "eslint-plugin-react-hooks": "4.6.0"
-  },
-  "jest": {
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\](?!aggregate-error|clean-stack|escape-string-regexp|execa|human-signals|indent-string|is-stream|mimic-fn|npm-run-path|onetime|p-map|path-key|strip-final-newline).+\\.(js|jsx)$"
-    ]
+  "pnpm": {
+    "overrides": {
+      "node-notifier": "10.0.1",
+      "jest": "29.5.0",
+      "ts-jest": "29.1.0",
+      "typescript": "5.0.4"
+    }
   }
 }

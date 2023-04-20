@@ -7,7 +7,7 @@ A command line tool to check your UpLeveled projects before you submit
 ## Install
 
 ```bash
-yarn global add @upleveled/preflight
+pnpm add --global @upleveled/preflight
 ```
 
 ## Run

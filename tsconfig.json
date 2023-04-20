@@ -1,6 +1,5 @@
 {
-  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": ["bin", "__tests__", "src", ".eslintrc.cjs"],
+  "include": [".eslintrc.cjs", "src"],
   "exclude": ["dist"],
   "compilerOptions": {
     "module": "esnext",

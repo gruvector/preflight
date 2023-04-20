@@ -4,3 +4,5 @@ node_modules
 dist
 
 __tests__/fixtures/__temp
+
+*.tsbuildinfo

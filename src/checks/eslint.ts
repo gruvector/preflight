@@ -5,7 +5,7 @@ export const title = 'ESLint';
 
 export default async function eslintCheck() {
   try {
-    await execaCommand('yarn eslint . --max-warnings 0  --format compact');
+    await execaCommand('pnpm eslint . --max-warnings 0  --format compact');
   } catch (error) {
     const { stdout } = error as { stdout: string };
     const lines = stdout.split('\n');

@@ -17,17 +17,17 @@ export default async function allChangesCommittedToGit() {
   const { stdout } = await execaCommand('git status --porcelain');
 
   if (stdout !== '') {
-    const onlyYarnLockModifiedOnDrone =
-      stdout.trim() === 'M yarn.lock' && (await isDrone());
+    const onlyPnpmLockModifiedOnDrone =
+      stdout.trim() === 'M pnpm-lock.yaml' && (await isDrone());
     throw new Error(
       `Some changes have not been committed to Git:
         ${stdout}${
-        onlyYarnLockModifiedOnDrone
+        onlyPnpmLockModifiedOnDrone
           ? `
 
-        The only file with changes is the yarn.lock file, indicating that npm was incorrectly used in addition to Yarn (eg. an "npm install" command was run). To fix this, force regeneration of the yarn.lock file locally with the following command and then commit the changes:
+        The only file with changes is the pnpm-lock.yaml file, indicating that npm was incorrectly used in addition to pnpm (eg. an "npm install" command was run). To fix this, force regeneration of the pnpm-lock.yaml file locally with the following command and then commit the changes:
 
-        ${commandExample('yarn --force')}`
+        ${commandExample('pnpm install --force')}`
           : ''
       }
       `,

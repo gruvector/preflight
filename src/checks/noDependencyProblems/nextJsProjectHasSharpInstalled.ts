@@ -14,7 +14,7 @@ export default function nextJsProjectHasSharpInstalled() {
     throw new Error(
       `Next.js projects should have sharp installed for better image optimization. Install it with:
 
-        ${commandExample('yarn add sharp')}
+        ${commandExample('pnpm add sharp')}
       `,
     );
   }

@@ -36,7 +36,7 @@ await executeCommand(
   } ${repoPath} --config core.autocrlf=input`,
 );
 
-await executeCommand('yarn install --ignore-scripts', repoPath);
+await executeCommand('pnpm install --ignore-scripts', repoPath);
 const preflightOutput = await executeCommand('preflight', repoPath);
 
 if (preflightOutput) {

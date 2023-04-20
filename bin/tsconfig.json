@@ -1,0 +1,5 @@
+{
+  "extends": "eslint-config-upleveled/tsconfig.base.json",
+  "include": [".eslintrc.cjs", "preflight.js"],
+  "exclude": ["node_modules"]
+}
