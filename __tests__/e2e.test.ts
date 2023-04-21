@@ -76,7 +76,7 @@ test('Passes in the react-passing test project', async () => {
   );
 
   const stdoutSortedWithoutVersionNumber = stdout
-    .replace(/(UpLeveled Preflight) v\d+\.\d+\.\d+/, '$1')
+    .replace(/(UpLeveled Preflight) v\d+\.\d+\.\d+(-\d+)?/, '$1')
     .split('\n')
     .sort((a: string, b: string) => {
       if (b.includes('UpLeveled Preflight')) return 1;
