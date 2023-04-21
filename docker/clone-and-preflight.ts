@@ -28,6 +28,7 @@ async function executeCommand(command: string, cwd?: string) {
   }
 }
 
+console.log(`Cloning ${process.argv[2]}...`);
 await executeCommand(
   `git clone --depth 1 ${
     !process.argv[3] ? '' : `--branch ${process.argv[3]}`
@@ -36,7 +37,10 @@ await executeCommand(
   } ${repoPath} --config core.autocrlf=input`,
 );
 
+console.log('Installing dependencies...');
 await executeCommand('pnpm install --ignore-scripts', repoPath);
+
+console.log('Running Preflight...');
 const preflightOutput = await executeCommand('preflight', repoPath);
 
 if (preflightOutput) {
