@@ -1,4 +1,5 @@
 FROM node:18.10-alpine3.15
+SHELL ["/bin/bash", "-c"]
 WORKDIR /preflight
 COPY ./docker/clone-and-preflight.js ./docker/package.json ./docker/pnpm-lock.yaml ./
 RUN corepack enable && corepack prepare pnpm@latest --activate
