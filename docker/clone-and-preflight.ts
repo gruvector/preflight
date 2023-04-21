@@ -45,7 +45,7 @@ await executeCommand(
 );
 
 console.log('Installing dependencies...');
-await executeCommand('pnpm install --ignore-scripts', repoPath);
+await executeCommand('pnpm install', repoPath);
 
 console.log('Running Preflight...');
 const preflightOutput = await executeCommand('preflight', repoPath);
