@@ -1,7 +1,12 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["./**/*.ts"],
   "compilerOptions": {
+    // Without this, module: Node16 causes emit in CommonJS, which leads to this error:
+    //
+    // ReferenceError: exports is not defined in ES module scope
+    // This file is being treated as an ES module because it has a '.js' file extension and '/preflight/package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+    "module": "ESNext",
     "noEmit": false
-  }
+  },
+  "include": ["clone-and-preflight.ts"]
 }

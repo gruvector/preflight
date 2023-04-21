@@ -4,6 +4,6 @@
     "module": "Node16",
     "target": "ES2020"
   },
-  "include": [".eslintrc.cjs", "**/*.ts"],
+  "include": [".eslintrc.cjs", "clone-and-preflight.ts"],
   "exclude": ["node_modules"]
 }
