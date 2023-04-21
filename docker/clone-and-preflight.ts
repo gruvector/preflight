@@ -48,7 +48,10 @@ console.log('Installing dependencies...');
 await executeCommand('pnpm install', repoPath);
 
 console.log('Running Preflight...');
-const preflightOutput = await executeCommand('preflight', repoPath);
+const preflightOutput = await executeCommand(
+  'pnpm dlx @upleveled/preflight@latest',
+  repoPath,
+);
 
 if (preflightOutput) {
   console.log(
