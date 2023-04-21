@@ -5,7 +5,7 @@ export const title = 'Next.js project has sharp installed';
 
 export default function nextJsProjectHasSharpInstalled() {
   const dependenciesPackageNames = Object.keys(
-    projectPackageJson.dependencies!,
+    projectPackageJson.dependencies || {},
   );
   if (
     dependenciesPackageNames.includes('next') &&

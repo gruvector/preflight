@@ -1,4 +1,4 @@
-import { dirname } from 'node:path';
+import { dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execaCommand } from 'execa';
 import normalizeNewline from '../util/normalizeNewline';
@@ -23,32 +23,26 @@ export default async function prettierCheck() {
       throw error;
     }
 
-    const ignoredFilePatterns = [
-      // File from create-react-app not matching our formatting
-      // https://github.com/facebook/create-react-app/blob/fdbde1f3c256b43d5386b5ae3a75083dbd8f0aff/packages/cra-template/template/src/reportWebVitals.js
-      /src[/\\]reportWebVitals\.js$/,
-
-      // Files from create-next-app not matching our formatting
-      // https://github.com/vercel/next.js/blob/5a73859fe8d3659d52e169f97188ae422e0d2ace/packages/create-next-app/templates/default/pages/api/hello.js
-      /pages[/\\]api[/\\]hello\.js$/,
-      // https://github.com/vercel/next.js/blob/aacfa79ddf88e4e1488b63ac253af27110f0a151/packages/create-next-app/templates/default/pages/_app.js
-      /pages[/\\]_app\.js$/,
-    ];
-
     const unformattedFiles = normalizeNewline(stdout)
       .split('\n')
-      .map((file) =>
-        // Make paths relative to the project instead of Preflight, eg:
-        // before: ../../../../../../projects/random-color-generator-react-app/src/reportWebVitals.js
-        // after: random-color-generator-react-app/src/reportWebVitals.js
-        file.replace(/^([A-Z]:|\.\.[/\\])[a-zA-Z0-9-_/.\\ ]*projects[/\\]/, ''),
-      )
-      .filter(
-        (file) =>
-          !ignoredFilePatterns.some((ignoredFilePattern) =>
-            ignoredFilePattern.test(file),
-          ),
-      );
+      // Make paths relative to the project:
+      //
+      // Before:
+      //   macOS / Linux: ../../../../../../projects/random-color-generator-react-app/src/reportWebVitals.js
+      //   Windows: ..\..\..\..\..\..\..\..\..\..\..\projects\random-color-generator-react-app\src\reportWebVitals.js
+      //
+      // After:
+      //   macOS / Linux: src/reportWebVitals.js
+      //   Windows: src\reportWebVitals.js
+      .map((file) => {
+        return file.replace(
+          `${relative(
+            dirname(fileURLToPath(import.meta.url)),
+            process.cwd(),
+          )}${sep}`,
+          '',
+        );
+      });
 
     if (unformattedFiles.length > 0) {
       throw new Error(

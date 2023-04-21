@@ -1,6 +1,6 @@
 {
   "name": "@upleveled/preflight",
-  "version": "2.0.1",
+  "version": "2.1.0-0",
   "repository": "upleveled/preflight",
   "license": "MIT",
   "author": "UpLeveled (https://github.com/upleveled)",
@@ -38,6 +38,7 @@
     ]
   },
   "dependencies": {
+    "@types/eslint": "8.37.0",
     "algoliasearch": "4.17.0",
     "chalk": "5.2.0",
     "cheerio": "1.0.0-rc.12",
@@ -88,6 +89,7 @@
     "p-map": "5.5.0",
     "postinstall-postinstall": "2.1.0",
     "size-limit": "8.2.4",
+    "stylelint": "15.5.0",
     "tsdx": "0.14.1",
     "tslib": "2.5.0",
     "typescript": "5.0.4"

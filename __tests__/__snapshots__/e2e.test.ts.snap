@@ -14,6 +14,8 @@ exports[`Passes in the react-passing test project 1`] = `
 [32m[COMPLETED][39m Preflight is latest version
 [32m[COMPLETED][39m Prettier
 [32m[COMPLETED][39m Project folder name matches correct format
+[32m[COMPLETED][39m Stylelint
+[32m[COMPLETED][39m Stylelint config is latest version
 [32m[COMPLETED][39m Use single package manager
 [32m[COMPLETED][39m node_modules/ folder ignored in Git
 [33m[STARTED][39m All changes committed to Git
@@ -28,6 +30,8 @@ exports[`Passes in the react-passing test project 1`] = `
 [33m[STARTED][39m Preflight is latest version
 [33m[STARTED][39m Prettier
 [33m[STARTED][39m Project folder name matches correct format
+[33m[STARTED][39m Stylelint
+[33m[STARTED][39m Stylelint config is latest version
 [33m[STARTED][39m Use single package manager
 [33m[STARTED][39m node_modules/ folder ignored in Git"
 `;

@@ -12,6 +12,8 @@ import * as noSecretsCommittedToGit from './checks/noSecretsCommittedToGit.js';
 import * as preflightIsLatestVersion from './checks/preflightIsLatestVersion.js';
 import * as prettier from './checks/prettier.js';
 import * as projectFolderNameMatchesCorrectFormat from './checks/projectFolderNameMatchesCorrectFormat.js';
+import * as stylelint from './checks/stylelint.js';
+import * as stylelintConfigIsValid from './checks/stylelintConfigIsValid.js';
 import * as useSinglePackageManager from './checks/useSinglePackageManager.js';
 import { CtxParam } from './types/CtxParam.js';
 import { TaskParam } from './types/TaskParam.js';
@@ -19,6 +21,8 @@ import {
   preflightPackageJson,
   projectPackageJson,
 } from './util/packageJson.js';
+
+const projectDependencies = projectPackageJson.dependencies || {};
 
 console.log(`🚀 UpLeveled Preflight v${preflightPackageJson.version}`);
 
@@ -42,8 +46,7 @@ const listrTasks = [
     title: 'No dependency problems',
     task: (ctx: CtxParam, task: TaskParam): Listr =>
       task.newListr([
-        ...(!projectPackageJson.dependencies ||
-        !Object.keys(projectPackageJson.dependencies).includes('next')
+        ...(!Object.keys(projectDependencies).includes('next')
           ? []
           : [
               {
@@ -67,10 +70,22 @@ const listrTasks = [
 
   // Linting
   eslint,
+  ...(!(
+    '@upleveled/react-scripts' in projectDependencies ||
+    'next' in projectDependencies
+  )
+    ? []
+    : [stylelint]),
   prettier,
 
   // Version and configuration checks
   eslintConfigIsValid,
+  ...(!(
+    '@upleveled/react-scripts' in projectDependencies ||
+    'next' in projectDependencies
+  )
+    ? []
+    : [stylelintConfigIsValid]),
   preflightIsLatestVersion,
 ].map((module) => {
   if ('task' in module) return module;
