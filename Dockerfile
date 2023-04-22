@@ -12,7 +12,7 @@ RUN pnpm install --frozen-lockfile
 # https://github.com/pnpm/pnpm/issues/784#issuecomment-1518582235
 ENV PNPM_HOME=/usr/local/bin
 
-RUN pnpm add --global @upleveled/preflight
+RUN pnpm add --global @upleveled/preflight@latest
 
 # Allow `git clone` in the script
 RUN apk add git
