@@ -12,7 +12,7 @@ RUN pnpm install --frozen-lockfile
 # - Trick pnpm into thinking that bash is available (only /bin/sh available on Alpine Linux)
 # https://github.com/pnpm/pnpm/issues/784#issuecomment-1518582235
 ENV PNPM_HOME=/usr/local/bin
-RUN SHELL=bash pnpm setup && source ~/.bashrc
+RUN SHELL=bash pnpm setup
 
 RUN pnpm add --global @upleveled/preflight
 
