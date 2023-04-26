@@ -23,7 +23,10 @@
   "scripts": {
     "analyze": "size-limit --why",
     "build": "tsdx build --format esm --target node",
-    "build-docker-ts": "tsc --project docker/tsconfig.build.json",
+    "docker-build": "docker build --tag preflight .",
+    "docker-build-run": "pnpm docker-build-ts && pnpm docker-build && pnpm docker-run",
+    "docker-build-ts": "tsc --project docker/tsconfig.build.json",
+    "docker-run": "docker run preflight",
     "postinstall": "patch-package",
     "lint": "eslint . --max-warnings 0",
     "prepare": "pnpm build",
