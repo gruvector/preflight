@@ -89,7 +89,7 @@
     "eslint-plugin-testing-library": "5.10.3",
     "eslint-plugin-unicorn": "46.0.0",
     "eslint-plugin-upleveled": "2.1.7",
-    "p-map": "5.5.0",
+    "p-map": "6.0.0",
     "postinstall-postinstall": "2.1.0",
     "size-limit": "8.2.4",
     "stylelint": "15.6.1",
