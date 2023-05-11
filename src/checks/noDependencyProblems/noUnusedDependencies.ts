@@ -43,6 +43,11 @@ export default async function noUnusedAndMissingDependencies() {
     'playwright',
     'puppeteer',
 
+    // `expect` required for proper types with `@testing-library/jest-dom` with `@jest/globals` and pnpm
+    // https://github.com/testing-library/jest-dom/issues/123#issuecomment-1536828385
+    // TODO: Remove when we switch from Jest to Vitest
+    'expect',
+
     // TypeScript
     'typescript',
     '@types/*',
