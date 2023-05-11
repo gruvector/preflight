@@ -2,6 +2,11 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "eslint-config-upleveled/tsconfig.base.json",
+  "compilerOptions": {
+    "module": "Node16",
+    "target": "ES2020",
+    "checkJs": true
+  },
   "include": [
     "**/.eslintrc.cjs",
     "**/*.ts",
@@ -11,5 +16,5 @@
     "**/*.cjs",
     "**/*.mjs"
   ],
-  "exclude": ["node_modules", "__tests__", "bin", "docker", "src"]
+  "exclude": ["node_modules", "bin", "dist", "docker", "src"]
 }

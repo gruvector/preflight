@@ -1,4 +1,2 @@
 dist
-babel.config.cjs
-prettier.config.cjs
 __tests__/fixtures

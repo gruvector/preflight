@@ -1,5 +1,5 @@
 {
-  "include": [".eslintrc.cjs", "src"],
+  "include": ["src"],
   "exclude": ["dist"],
   "compilerOptions": {
     "module": "esnext",
