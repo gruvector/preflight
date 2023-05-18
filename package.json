@@ -48,13 +48,13 @@
     "depcheck": "1.4.3",
     "domhandler": "5.0.3",
     "execa": "7.1.1",
-    "listr2": "6.4.2",
+    "listr2": "6.6.0",
     "node-fetch": "3.3.1",
     "p-reduce": "3.0.0",
     "patch-package": "7.0.0",
     "prettier": "2.8.8",
     "readdirp": "3.6.0",
-    "semver": "7.5.0",
+    "semver": "7.5.1",
     "top-user-agents": "1.0.52"
   },
   "devDependencies": {
@@ -67,13 +67,13 @@
     "@types/semver": "7.5.0",
     "babel-jest": "29.5.0",
     "eslint": "8.40.0",
-    "eslint-config-upleveled": "4.3.0",
+    "eslint-config-upleveled": "4.3.2",
     "p-map": "6.0.0",
     "postinstall-postinstall": "2.1.0",
     "size-limit": "8.2.4",
-    "stylelint": "15.6.1",
+    "stylelint": "15.6.2",
     "tsdx": "0.14.1",
-    "tslib": "2.5.0",
+    "tslib": "2.5.1",
     "typescript": "5.0.4"
   },
   "engines": {
