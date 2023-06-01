@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 overrides:
   node-notifier: 10.0.1
@@ -51,8 +55,8 @@ dependencies:
     specifier: 7.5.1
     version: 7.5.1
   top-user-agents:
-    specifier: 1.0.52
-    version: 1.0.52
+    specifier: 1.0.57
+    version: 1.0.57
 
 devDependencies:
   '@babel/plugin-transform-modules-commonjs':
@@ -65,8 +69,8 @@ devDependencies:
     specifier: 8.2.4
     version: 8.2.4(size-limit@8.2.4)
   '@types/jest':
-    specifier: 29.5.1
-    version: 29.5.1
+    specifier: 29.5.2
+    version: 29.5.2
   '@types/node':
     specifier: 18.16.2
     version: 18.16.2
@@ -2106,8 +2110,8 @@ packages:
       pretty-format: 25.5.0
     dev: true
 
-  /@types/jest@29.5.1:
-    resolution: {integrity: sha512-tEuVcHrpaixS36w7hpsfLBLpjtMRJUE09/MHXn923LOVojDwyC14cWcfc0rDs0VEfUyYmt/+iX1kxxp+gZMcaQ==}
+  /@types/jest@29.5.2:
+    resolution: {integrity: sha512-mSoZVJF5YzGVCk+FsDxzDuH7s+SCkzrgKZzf0Z0T2WudhBUPoF6ktoTPC4R0ZoCPCV5xUvuU6ias5NvxcBcMMg==}
     dependencies:
       expect: 29.5.0
       pretty-format: 29.5.0
@@ -4888,8 +4892,8 @@ packages:
       get-intrinsic: 1.2.0
     dev: true
 
-  /got@12.5.3:
-    resolution: {integrity: sha512-8wKnb9MGU8IPGRIo+/ukTy9XLJBwDiCpIf5TVzQ9Cpol50eMTpBq2GAuDsuDIz7hTYmZgMgC1e9ydr6kSDWs3w==}
+  /got@12.6.1:
+    resolution: {integrity: sha512-mThBblvlAF1d4O5oqyvN+ZxLAYwIJK7bpMxgYqPD9okW0C3qm5FFn7k811QrcuEBwaogR3ngOFoCfs6mRv7teQ==}
     engines: {node: '>=14.16'}
     dependencies:
       '@sindresorhus/is': 5.3.0
@@ -7804,13 +7808,13 @@ packages:
     dependencies:
       is-number: 7.0.0
 
-  /top-user-agents@1.0.52:
-    resolution: {integrity: sha512-MeSi0Rz1flqKj2cQfJ3vnvZV1mqDm+DZLXuDtEqMrMCZh0qBqiE0/Dl+GZPCn/X7DruSYmf2mzaWuMxMDNdOiA==}
+  /top-user-agents@1.0.57:
+    resolution: {integrity: sha512-kG6ASIKZY+Cj8ma0cR61b5vi/+teCH89rQVQNRMDBQstnQSXhidqg7gXobYxaBjZ46ZzASqiEAv42v5UA3B0lA==}
     engines: {node: '>= 10'}
     requiresBuild: true
     dependencies:
       cheerio: 1.0.0-rc.12
-      got: 12.5.3
+      got: 12.6.1
       write-json-file: 4.3.0
     dev: false
 
