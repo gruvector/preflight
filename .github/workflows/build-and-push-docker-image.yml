@@ -33,7 +33,7 @@ jobs:
       - run: pnpm install
 
       - name: Compile TypeScript and build Docker images
-        run: pnpm build-docker-ts
+        run: pnpm docker-build-ts
 
       # Publish to container registry
       - name: Log in to the Container registry
