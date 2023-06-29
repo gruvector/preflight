@@ -23,7 +23,7 @@ export default async function eslintConfigIsValid() {
     localVersion = JSON.parse(
       await fs.readFile(eslintConfigPackageJsonPath, 'utf-8'),
     ).version;
-  } catch (err) {}
+  } catch (error) {}
 
   if (typeof localVersion === 'undefined') {
     throw new Error(
@@ -50,7 +50,7 @@ const config = {
 };
 
 module.exports = config;`;
-  } catch (err) {
+  } catch (error) {
     throw new Error(
       `Error reading your .eslintrc.cjs file - please delete the file if it exists and reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,

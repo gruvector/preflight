@@ -51,13 +51,13 @@ export default async function noDependenciesWithoutTypes() {
         if ('types' in modulePackageJson || 'typings' in modulePackageJson) {
           return filteredDependencies;
         }
-      } catch (err) {}
+      } catch (error) {}
 
       let indexDTsPath;
 
       try {
         indexDTsPath = require.resolve(`${dependency}/index.d.ts`);
-      } catch (err) {}
+      } catch (error) {}
 
       // If the index.d.ts file exists inside the module's directory, bail out
       if (indexDTsPath && existsSync(indexDTsPath)) {
@@ -70,11 +70,13 @@ export default async function noDependenciesWithoutTypes() {
         results = await index.getObject<AlgoliaObj>(dependency, {
           attributesToRetrieve: ['types'],
         });
-      } catch (err) {
+      } catch (error) {
         // Show dependency name if Algolia's `index.getObject()` throws with an
         // error message (such as the error message "ObjectID does not exist"
         // when a package cannot be found in the index)
-        throw new Error(`Algolia error for \`${dependency}\`: ${err}`);
+        throw new Error(
+          `Algolia error for \`${dependency}\`: ${(error as Error).message}`,
+        );
       }
 
       const definitelyTypedPackageName = results.types?.definitelyTyped;
