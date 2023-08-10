@@ -67,7 +67,7 @@
     "@types/semver": "7.5.0",
     "babel-jest": "29.6.2",
     "eslint": "8.46.0",
-    "eslint-config-upleveled": "5.0.3",
+    "eslint-config-upleveled": "5.0.4",
     "p-map": "6.0.0",
     "postinstall-postinstall": "2.1.0",
     "size-limit": "8.2.6",
