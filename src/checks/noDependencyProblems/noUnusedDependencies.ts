@@ -58,23 +58,7 @@ export default async function noUnusedAndMissingDependencies() {
 
   try {
     await execaCommand(
-      `${preflightBinPath}/depcheck --ignores="${ignoredPackagePatterns}" --parsers="${
-        // TODO: Remove this once depcheck PR is published:
-        // https://github.com/depcheck/depcheck/pull/773#issuecomment-1649749599
-        [
-          '**/*.js:jsx',
-          '**/*.mjs:jsx',
-          '**/*.cjs:jsx',
-          '**/*.jsx:jsx',
-          '**/*.graphql:graphql',
-          '**/*.cts:typescript',
-          '**/*.mts:typescript',
-          '**/*.ts:typescript',
-          '**/*.tsx:typescript',
-          '**/*.sass:sass',
-          '**/*.scss:sass',
-        ].join(',')
-      }"`,
+      `${preflightBinPath}/depcheck --ignores="${ignoredPackagePatterns}"`,
     );
   } catch (error) {
     const { stdout } = error as { stdout: string };
