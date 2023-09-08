@@ -60,7 +60,7 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.22.15",
     "@jest/globals": "29.6.4",
-    "@size-limit/file": "8.2.6",
+    "@size-limit/file": "9.0.0",
     "@types/jest": "29.5.4",
     "@types/node": "20.5.9",
     "@types/p-map": "2.0.0",
