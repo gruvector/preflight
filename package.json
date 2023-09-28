@@ -55,7 +55,7 @@
     "prettier": "3.0.3",
     "readdirp": "3.6.0",
     "semver": "7.5.4",
-    "top-user-agents": "1.0.61"
+    "top-user-agents": "1.0.62"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.23.0",

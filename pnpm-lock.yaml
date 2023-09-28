@@ -62,8 +62,8 @@ dependencies:
     specifier: 7.5.4
     version: 7.5.4
   top-user-agents:
-    specifier: 1.0.61
-    version: 1.0.61
+    specifier: 1.0.62
+    version: 1.0.62
 
 devDependencies:
   '@babel/plugin-transform-modules-commonjs':
@@ -4615,7 +4615,7 @@ packages:
     peerDependencies:
       eslint: 8.47.0
     dependencies:
-      '@babel/helper-validator-identifier': 7.22.15
+      '@babel/helper-validator-identifier': 7.22.20
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.47.0)
       ci-info: 3.8.0
       clean-regexp: 1.0.0
@@ -8142,8 +8142,8 @@ packages:
     dependencies:
       is-number: 7.0.0
 
-  /top-user-agents@1.0.61:
-    resolution: {integrity: sha512-WRqRMLXNEBEpk1CR6we1efkyM4kTYNkvacIR9W4VaVBsyBtmsKsWBv5qJxBL41VATDtaMq259poC6U59l97B2A==}
+  /top-user-agents@1.0.62:
+    resolution: {integrity: sha512-8AkHZ0rLZkEn6VVT1cu/eMkC/k4JOOzVW9RqBkajYYvtMOTagI6hqY8tq51GkOrz+49Kfi9dHyIdNQ59+8MOog==}
     engines: {node: '>= 10'}
     requiresBuild: true
     dependencies:
@@ -8494,7 +8494,7 @@ packages:
     resolution: {integrity: sha512-YmjsSMDBYsM1CaFiayOVT06+KJeXf0o5M/CAd4o1lTadFAtacTUM49zoYxr/oroopFDfhvN6iEcBxUyc3gvKmw==}
     engines: {node: '>= 0.4'}
     dependencies:
-      function.prototype.name: 1.1.5
+      function.prototype.name: 1.1.6
       has-tostringtag: 1.0.0
       is-async-function: 2.0.0
       is-date-object: 1.0.5
@@ -8505,7 +8505,7 @@ packages:
       isarray: 2.0.5
       which-boxed-primitive: 1.0.2
       which-collection: 1.0.1
-      which-typed-array: 1.1.9
+      which-typed-array: 1.1.11
     dev: true
 
   /which-collection@1.0.1:
