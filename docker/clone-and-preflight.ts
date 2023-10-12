@@ -47,6 +47,14 @@ await executeCommand(
 console.log('Installing dependencies...');
 await executeCommand('pnpm install', repoPath);
 
+console.log(
+  'Install SafeQL if not yet installed (eg. on Windows dev machines)...',
+);
+await execaCommand(
+  "grep package.json -e '\"postgres\":' && (grep package.json -e '@ts-safeql/eslint-plugin' || pnpm add @ts-safeql/eslint-plugin libpg-query)",
+  { shell: true, reject: false },
+);
+
 console.log('Running Preflight...');
 const preflightOutput = await executeCommand('preflight', repoPath);
 
