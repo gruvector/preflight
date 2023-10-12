@@ -52,7 +52,7 @@ console.log(
 );
 await execaCommand(
   "grep package.json -e '\"postgres\":' && (grep package.json -e '@ts-safeql/eslint-plugin' || pnpm add @ts-safeql/eslint-plugin libpg-query)",
-  { shell: true, reject: false },
+  { shell: true, reject: false, cwd: repoPath },
 );
 
 console.log('Running Preflight...');
