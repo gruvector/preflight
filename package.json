@@ -41,7 +41,7 @@
     ]
   },
   "dependencies": {
-    "@types/eslint": "8.44.3",
+    "@types/eslint": "8.44.4",
     "algoliasearch": "4.20.0",
     "chalk": "5.3.0",
     "cheerio": "1.0.0-rc.12",
@@ -55,19 +55,19 @@
     "prettier": "3.0.3",
     "readdirp": "3.6.0",
     "semver": "7.5.4",
-    "top-user-agents": "1.0.62"
+    "top-user-agents": "1.0.64"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.23.0",
     "@jest/globals": "29.7.0",
     "@size-limit/file": "9.0.0",
     "@types/jest": "29.5.5",
-    "@types/node": "20.8.2",
+    "@types/node": "20.8.4",
     "@types/p-map": "2.0.0",
     "@types/semver": "7.5.3",
     "babel-jest": "29.7.0",
-    "eslint": "8.50.0",
-    "eslint-config-upleveled": "5.0.5",
+    "eslint": "8.51.0",
+    "eslint-config-upleveled": "5.1.0",
     "p-map": "6.0.0",
     "postinstall-postinstall": "2.1.0",
     "size-limit": "9.0.0",
