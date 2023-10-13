@@ -13,7 +13,7 @@ $ docker run ghcr.io/upleveled/preflight https://github.com/upleveled/preflight-
 
 const repoPath = 'repo-to-check';
 
-async function executeCommand(command: string, options?: Options) {
+async function executeCommand(command: string, options?: Pick<Options, 'cwd'>) {
   let all: string | undefined = '';
   let exitCode = 0;
 
