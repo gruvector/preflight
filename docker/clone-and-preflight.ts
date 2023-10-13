@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { execaCommand } from 'execa';
+import { execaCommand, Options } from 'execa';
 
 const regex = /^https:\/\/github\.com\/[a-zA-Z0-9\-.]+\/[a-zA-Z0-9\-.]+$/;
 
@@ -13,13 +13,13 @@ $ docker run ghcr.io/upleveled/preflight https://github.com/upleveled/preflight-
 
 const repoPath = 'repo-to-check';
 
-async function executeCommand(command: string, cwd?: string) {
+async function executeCommand(command: string, options?: Options) {
   let all: string | undefined = '';
   let exitCode = 0;
 
   try {
     ({ all, exitCode } = await execaCommand(command, {
-      cwd,
+      cwd: options?.cwd,
       all: true,
     }));
   } catch (error) {
@@ -45,7 +45,7 @@ await executeCommand(
 );
 
 console.log('Installing dependencies...');
-await executeCommand('pnpm install', repoPath);
+await executeCommand('pnpm install', { cwd: repoPath });
 
 console.log(
   'Install SafeQL if not yet installed (eg. on Windows dev machines)...',
@@ -56,7 +56,7 @@ await execaCommand(
 );
 
 console.log('Running Preflight...');
-const preflightOutput = await executeCommand('preflight', repoPath);
+const preflightOutput = await executeCommand('preflight', { cwd: repoPath });
 
 if (preflightOutput) {
   console.log(
