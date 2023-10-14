@@ -20,14 +20,29 @@ const testRepos: Repo[] = [
   {
     repoPath: 'upleveled/preflight-test-project-react-passing',
     dirName: 'react-passing',
-    // To use install commands, for example to install or upgrade
-    // a package first, pass an installCommands array like this:
-    // installCommands: [
-    //   // To install the latest version of the ESLint config
-    //   'pnpm upgrade --latest @upleveled/eslint-config-upleveled',
-    //   // Avoid any issues with uncommitted files
-    //   'git reset --hard HEAD',
-    // ],
+  },
+  {
+    repoPath: 'upleveled/preflight-test-project-next-js-passing',
+    dirName: 'next-js-passing',
+    installCommands:
+      // libpg-query is not yet supported on Windows
+      // https://github.com/pganalyze/libpg_query/issues/44
+      process.platform === 'win32'
+        ? [
+            // `pnpm remove` also installs if node_modules doesn't
+            // exist (no need to run `pnpm install` as well)
+            'pnpm remove @ts-safeql/eslint-plugin libpg-query',
+            // Commit packages.json and pnpm-lock.yaml changes to
+            // avoid failing "All changes committed to Git" check
+            'git config user.email github-actions[bot]@users.noreply.github.com',
+            'git config user.name github-actions[bot]',
+            'git commit --all --message Remove\\ SafeSQL\\ for\\ Windows',
+          ]
+        : [
+            'pnpm install --frozen-lockfile',
+            // Run project database migrations
+            'pnpm migrate up',
+          ],
   },
 ];
 
@@ -68,15 +83,8 @@ beforeAll(
   300000,
 );
 
-test('Passes in the react-passing test project', async () => {
-  const { stdout, stderr } = await execaCommand(
-    `../../../../bin/preflight.js`,
-    {
-      cwd: `${fixturesTempDir}/react-passing`,
-    },
-  );
-
-  const stdoutSortedWithoutVersionNumber = stdout
+function sortStdoutAndStripVersionNumber(stdout: string) {
+  return stdout
     .replace(/(UpLeveled Preflight) v\d+\.\d+\.\d+(-\d+)?/, '$1')
     .split('\n')
     .sort((a: string, b: string) => {
@@ -85,7 +93,28 @@ test('Passes in the react-passing test project', async () => {
     })
     .join('\n')
     .trim();
+}
 
-  expect(stdoutSortedWithoutVersionNumber).toMatchSnapshot();
+test('Passes in the react-passing test project', async () => {
+  const { stdout, stderr } = await execaCommand(
+    `../../../../bin/preflight.js`,
+    {
+      cwd: `${fixturesTempDir}/react-passing`,
+    },
+  );
+
+  expect(sortStdoutAndStripVersionNumber(stdout)).toMatchSnapshot();
   expect(stderr.replace(/^\(node:\d+\) /, '')).toMatchSnapshot();
 }, 30000);
+
+test('Passes in the next-js-passing test project', async () => {
+  const { stdout, stderr } = await execaCommand(
+    `../../../../bin/preflight.js`,
+    {
+      cwd: `${fixturesTempDir}/next-js-passing`,
+    },
+  );
+
+  expect(sortStdoutAndStripVersionNumber(stdout)).toMatchSnapshot();
+  expect(stderr.replace(/^\(node:\d+\) /, '')).toMatchSnapshot();
+}, 45000);

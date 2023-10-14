@@ -11,8 +11,17 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-
+    env:
+      PGHOST: localhost
+      PGDATABASE: preflight_test_project_next_js_passing
+      PGUSERNAME: preflight_test_project_next_js_passing
+      PGPASSWORD: preflight_test_project_next_js_passing
     steps:
+      - uses: ikalnytskyi/action-setup-postgres@v4
+        with:
+          username: ${{ env.PGUSERNAME }}
+          password: ${{ env.PGPASSWORD }}
+          database: ${{ env.PGDATABASE }}
       # To avoid CRLF in Windows tests, which cause problems with Prettier:
       # https://github.com/upleveled/preflight/runs/1824397400
       #
@@ -31,10 +40,12 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 'lts/*'
           cache: 'pnpm'
 
       - run: pnpm install
+      - run: pnpm install
+        working-directory: docker
 
       - name: Lint
         run: pnpm lint

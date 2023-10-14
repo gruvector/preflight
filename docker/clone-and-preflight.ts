@@ -11,7 +11,7 @@ $ docker run ghcr.io/upleveled/preflight https://github.com/upleveled/preflight-
   process.exit(1);
 }
 
-const repoPath = 'repo-to-check';
+const projectPath = 'project-to-check';
 
 async function executeCommand(command: string, options?: Pick<Options, 'cwd'>) {
   let all: string | undefined = '';
@@ -41,22 +41,90 @@ await executeCommand(
     !process.argv[3] ? '' : `--branch ${process.argv[3]}`
   } --single-branch ${
     process.argv[2]
-  } ${repoPath} --config core.autocrlf=input`,
+  } ${projectPath} --config core.autocrlf=input`,
 );
 
 console.log('Installing dependencies...');
-await executeCommand('pnpm install', { cwd: repoPath });
+await executeCommand('pnpm install', { cwd: projectPath });
 
-console.log(
-  'Install SafeQL if not yet installed (eg. on Windows dev machines)...',
-);
-await execaCommand(
-  "grep package.json -e '\"postgres\":' && (grep package.json -e '@ts-safeql/eslint-plugin' || pnpm add @ts-safeql/eslint-plugin libpg-query)",
-  { shell: true, reject: false, cwd: repoPath },
-);
+// Exit code of grep will be 0 if the `"postgres":`
+// string is found in package.json, indicating that
+// Postgres.js is installed and the project uses
+// a PostgreSQL database
+const projectUsesPostgresql =
+  (
+    await execaCommand('grep package.json -e \'"postgres":\'', {
+      cwd: projectPath,
+      shell: true,
+      reject: false,
+    })
+  ).exitCode === 0;
+
+if (projectUsesPostgresql) {
+  console.log('Setting up PostgreSQL database...');
+
+  // Set database connection environment variables (inherited in
+  // all future execaCommand / executeCommand calls)
+  process.env.PGHOST = 'localhost';
+  process.env.PGDATABASE = 'project_to_check';
+  process.env.PGUSERNAME = 'project_to_check';
+  process.env.PGPASSWORD = 'project_to_check';
+
+  // Create directory for PostgreSQL socket
+  await executeCommand('mkdir /run/postgresql');
+  await executeCommand('chown postgres:postgres /run/postgresql');
+
+  // Run script as postgres user to:
+  // - Create data directory
+  // - Init database
+  // - Start database
+  // - Create database
+  // - Create database user
+  // - Create schema
+  // - Grant permissions to database user
+  //
+  // Example script:
+  // https://github.com/upleveled/preflight-test-project-next-js-passing/blob/e65717f6951b5336bb0bd83c15bbc99caa67ebe9/scripts/alpine-postgresql-setup-and-start.sh
+  const postgresUid = Number((await executeCommand('id -u postgres'))!);
+  await execaCommand('bash ./scripts/alpine-postgresql-setup-and-start.sh', {
+    cwd: projectPath,
+    // postgres user, for initdb and pg_ctl
+    uid: postgresUid,
+    // Show output to simplify debugging
+    stdout: 'inherit',
+    stderr: 'inherit',
+  });
+
+  console.log('Running migrations...');
+  await executeCommand('pnpm migrate up', { cwd: projectPath });
+
+  if (
+    // Exit code of grep will be non-zero if the
+    // `"@ts-safeql/eslint-plugin":` string is not found in
+    // package.json, indicating that SafeQL has not been
+    // installed
+    (
+      await execaCommand(
+        'grep package.json -e \'"@ts-safeql/eslint-plugin":\'',
+        {
+          cwd: projectPath,
+          shell: true,
+          reject: false,
+        },
+      )
+    ).exitCode !== 0
+  ) {
+    console.log(
+      'SafeQL ESLint plugin not yet installed (project created on Windows machine), installing...',
+    );
+    await executeCommand('pnpm add @ts-safeql/eslint-plugin libpg-query', {
+      cwd: projectPath,
+    });
+  }
+}
 
 console.log('Running Preflight...');
-const preflightOutput = await executeCommand('preflight', { cwd: repoPath });
+const preflightOutput = await executeCommand('preflight', { cwd: projectPath });
 
 if (preflightOutput) {
   console.log(

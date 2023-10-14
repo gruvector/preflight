@@ -2,7 +2,14 @@ FROM node:lts-alpine
 
 WORKDIR /preflight
 
-COPY ./docker/clone-and-preflight.js ./docker/package.json ./docker/pnpm-lock.yaml ./
+COPY ./docker/package.json ./docker/pnpm-lock.yaml ./
+
+# Install dependencies:
+# - Git to allow `git clone` in the clone-and-preflight script (git)
+# - PostgreSQL for project databases (postgresql15)
+# - Python and build tools for building libpg-query with node-gyp (python3, py3-pip, build-base, bash)
+RUN apk update
+RUN apk add --no-cache git postgresql15 python3 py3-pip build-base bash
 
 RUN corepack enable && corepack prepare pnpm@latest --activate
 RUN pnpm install --frozen-lockfile
@@ -14,8 +21,6 @@ ENV PNPM_HOME=/usr/local/bin
 
 RUN pnpm add --global @upleveled/preflight@latest
 
-# Allow `git clone` in the script
-RUN apk add git
-
+COPY ./docker/clone-and-preflight.js ./
 RUN chmod +x ./clone-and-preflight.js
 ENTRYPOINT ["./clone-and-preflight.js"]

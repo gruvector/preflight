@@ -4,5 +4,6 @@ node_modules
 dist
 
 __tests__/fixtures/__temp
+docker/clone-and-preflight.js
 
 *.tsbuildinfo
