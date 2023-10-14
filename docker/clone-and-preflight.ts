@@ -120,6 +120,20 @@ if (projectUsesPostgresql) {
     await executeCommand('pnpm add @ts-safeql/eslint-plugin libpg-query', {
       cwd: projectPath,
     });
+
+    // Commit packages.json and pnpm-lock.yaml changes to
+    // avoid failing "All changes committed to Git" check
+    await executeCommand(
+      'git config user.email github-actions[bot]@users.noreply.github.com',
+      { cwd: projectPath },
+    );
+    await executeCommand('git config user.name github-actions[bot]', {
+      cwd: projectPath,
+    });
+    await executeCommand(
+      'git commit --all --message Add\\ SafeSQL\\ for\\ Windows',
+      { cwd: projectPath },
+    );
   }
 }
 
