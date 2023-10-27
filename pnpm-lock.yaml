@@ -74,8 +74,8 @@ devDependencies:
     specifier: 29.7.0
     version: 29.7.0
   '@size-limit/file':
-    specifier: 9.0.0
-    version: 9.0.0(size-limit@9.0.0)
+    specifier: 10.0.1
+    version: 10.0.1(size-limit@10.0.1)
   '@types/jest':
     specifier: 29.5.6
     version: 29.5.6
@@ -104,8 +104,8 @@ devDependencies:
     specifier: 2.1.0
     version: 2.1.0
   size-limit:
-    specifier: 9.0.0
-    version: 9.0.0
+    specifier: 10.0.1
+    version: 10.0.1
   stylelint:
     specifier: 15.11.0
     version: 15.11.0
@@ -2054,14 +2054,14 @@ packages:
       '@sinonjs/commons': 2.0.0
     dev: true
 
-  /@size-limit/file@9.0.0(size-limit@9.0.0):
-    resolution: {integrity: sha512-oM2UaH2FRq4q22k+R+P6xCpzET10T94LFdSjb9svVu/vOD7NaB9LGcG6se8TW1BExXiyXO4GEhLsBt3uMKM3qA==}
+  /@size-limit/file@10.0.1(size-limit@10.0.1):
+    resolution: {integrity: sha512-xQMh/Hy8QgyHaac+DSSKcwmcJlQglDTY67L5ouUf78SlDxiKQrr8QMiYdCj7Zl5KM+gmee/eIbl6v2qbpf/Vxw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
-      size-limit: 9.0.0
+      size-limit: 10.0.1
     dependencies:
       semver: 7.5.4
-      size-limit: 9.0.0
+      size-limit: 10.0.1
     dev: true
 
   /@szmarczak/http-timer@5.0.1:
@@ -4881,6 +4881,17 @@ packages:
       slash: 3.0.0
     dev: true
 
+  /globby@13.2.2:
+    resolution: {integrity: sha512-Y1zNGV+pzQdh7H39l9zgB4PJqjRNqydvdYCDG4HFXM4XuvSaQQlEc91IU1yALL8gUTDomgBAfz3XJdmUS+oo0w==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      dir-glob: 3.0.1
+      fast-glob: 3.3.1
+      ignore: 5.2.4
+      merge2: 1.4.1
+      slash: 4.0.0
+    dev: true
+
   /globjoin@0.1.4:
     resolution: {integrity: sha512-xYfnw62CKG8nLkZBfWbhWwDw02CHty86jfPcc2cr3ZfeuK9ysoVPPEUxf21bAD/rWAgk52SuBrLJlefNy8mvFg==}
     dev: true
@@ -7410,14 +7421,14 @@ packages:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
     dev: true
 
-  /size-limit@9.0.0:
-    resolution: {integrity: sha512-DrA7o2DeRN3s+vwCA9nn7Ck9Y4pn9t0GNUwQRpKqBtBmNkl6LA2s/NlNCdtKHrEkRTeYA1ZQ65mnYveo9rUqgA==}
+  /size-limit@10.0.1:
+    resolution: {integrity: sha512-lANGZsG+kk5P9zv84J/ratfT6LPTbWR8IitFXNfy41OyfnxoDBHqsl5+JVcG4YSU1UYcmShbp99O/SEPlDs1ZA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     dependencies:
       bytes-iec: 3.1.1
       chokidar: 3.5.3
-      globby: 11.1.0
+      globby: 13.2.2
       lilconfig: 2.1.0
       nanospinner: 1.1.0
       picocolors: 1.0.0
@@ -7431,6 +7442,11 @@ packages:
   /slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
+    dev: true
+
+  /slash@4.0.0:
+    resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
+    engines: {node: '>=12'}
     dev: true
 
   /slice-ansi@4.0.0:
