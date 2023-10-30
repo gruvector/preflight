@@ -45,23 +45,23 @@ export default async function stylelintConfigIsValid() {
 
   try {
     stylelintConfigMatches =
-      (await fs.readFile('./stylelint.config.cjs', 'utf-8')).trim() ===
+      (await fs.readFile('./stylelint.config.mjs', 'utf-8')).trim() ===
       `/** @type { import('stylelint').Config } */
 const config = {
   extends: ['stylelint-config-upleveled'],
 };
 
-module.exports = config;`;
+export default config;`;
   } catch (error) {
     throw new Error(
-      `Error reading your stylelint.config.cjs file - please delete the file if it exists and reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
+      `Error reading your stylelint.config.mjs file - please delete the file if it exists and reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,
     );
   }
 
   if (!stylelintConfigMatches) {
     throw new Error(
-      `Your stylelint.config.cjs file does not match the configuration file template - please delete the file and reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
+      `Your stylelint.config.mjs file does not match the configuration file template - please delete the file and reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,
     );
   }
