@@ -43,23 +43,18 @@ export default async function eslintConfigIsValid() {
 
   try {
     eslintConfigMatches =
-      (await fs.readFile('./.eslintrc.cjs', 'utf-8')).trim() ===
-      `/** @type {import('@typescript-eslint/utils').TSESLint.Linter.Config} */
-const config = {
-  extends: ['upleveled'],
-};
-
-module.exports = config;`;
+      (await fs.readFile('./eslint.config.js', 'utf-8')).trim() ===
+      "export { default } from 'eslint-config-upleveled';";
   } catch (error) {
     throw new Error(
-      `Error reading your .eslintrc.cjs file - please delete the file if it exists and reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
+      `Error reading your eslint.config.js file - please delete the file if it exists and reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,
     );
   }
 
   if (!eslintConfigMatches) {
     throw new Error(
-      `Your .eslintrc.cjs file does not match the configuration file template - please delete the file and reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
+      `Your eslint.config.js file does not match the configuration file template - please delete the file and reinstall the config using the instructions on https://www.npmjs.com/package/eslint-config-upleveled
       `,
     );
   }
