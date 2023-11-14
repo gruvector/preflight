@@ -13,7 +13,7 @@ export default async function prettierCheck() {
         '..',
         'node_modules',
         '.bin',
-      )}/prettier --list-different **/*.{js,jsx,ts,jsx} --ignore-path .eslintignore --end-of-line auto`,
+      )}/prettier --list-different **/*.{js,jsx,ts,jsx} --end-of-line auto`,
     );
   } catch (error) {
     const { stdout, stderr } = error as { stdout: string; stderr: string };
