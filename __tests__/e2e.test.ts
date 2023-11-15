@@ -1,8 +1,16 @@
+import { tmpdir } from 'node:os';
 import { beforeAll, expect, test } from '@jest/globals';
 import { execaCommand } from 'execa';
 import pMap from 'p-map';
 
-const fixturesTempDir = '__tests__/fixtures/__temp';
+const fixturesTempDir = process.env.GITHUB_ACTIONS
+  ? // Switch to `tmpdir()` on GitHub Actions to avoid
+    // ESLint crashing with Windows paths over the 260
+    // character MAX_PATH limit
+    // https://github.com/upleveled/preflight/pull/469/#issuecomment-1812422819
+    // https://github.com/eslint/eslint/issues/17763
+    tmpdir()
+  : '__tests__/fixtures/__temp';
 
 function cloneRepoToFixtures(repoPath: string, fixtureDirName: string) {
   return execaCommand(
@@ -79,8 +87,8 @@ beforeAll(
       { concurrency: 1 },
     );
   },
-  // 5 minute timeout for pnpm installation inside test repos
-  300000,
+  // 7.5 minute timeout for pnpm installation inside test repos
+  450000,
 );
 
 function sortStdoutAndStripVersionNumber(stdout: string) {
@@ -97,7 +105,7 @@ function sortStdoutAndStripVersionNumber(stdout: string) {
 
 test('Passes in the react-passing test project', async () => {
   const { stdout, stderr } = await execaCommand(
-    `../../../../bin/preflight.js`,
+    `${process.cwd()}/bin/preflight.js`,
     {
       cwd: `${fixturesTempDir}/react-passing`,
     },
@@ -109,7 +117,7 @@ test('Passes in the react-passing test project', async () => {
 
 test('Passes in the next-js-passing test project', async () => {
   const { stdout, stderr } = await execaCommand(
-    `../../../../bin/preflight.js`,
+    `${process.cwd()}/bin/preflight.js`,
     {
       cwd: `${fixturesTempDir}/next-js-passing`,
     },
