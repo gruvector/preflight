@@ -28,3 +28,25 @@ docker run ghcr.io/upleveled/preflight https://github.com/upleveled/preflight-te
 # Or run the image against a specific branch in a GitHub repo URL
 docker run ghcr.io/upleveled/preflight https://github.com/upleveled/preflight-test-project-react-passing fix-tests
 ```
+
+## Run Preflight with GitHub Actions workflow
+
+To run Preflight on every commit in your repository, you can use the following GitHub Actions workflow:
+
+`.github/workflows/preflight.yml`
+
+```yaml
+name: Preflight
+on: [push]
+
+jobs:
+  preflight:
+    name: Preflight
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pull latest Preflight image
+        run: docker pull ghcr.io/upleveled/preflight
+      - name: Run Preflight
+        run: docker run ghcr.io/upleveled/preflight https://github.com/${{ github.repository}} ${{ github.ref_name }}
+```
