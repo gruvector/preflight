@@ -95,8 +95,9 @@ const listrTasks = [
   };
 });
 
-await new Listr(listrTasks, {
+const tasks = new Listr(listrTasks, {
   exitOnError: false,
+  collectErrors: 'minimal',
   rendererOptions: {
     collapseErrors: false,
     removeEmptyLines: false,
@@ -104,4 +105,10 @@ await new Listr(listrTasks, {
   },
   fallbackRenderer: 'verbose',
   concurrent: 5,
-}).run();
+});
+
+await tasks.run();
+
+if (tasks.errors.length > 0) {
+  process.exit(1);
+}
