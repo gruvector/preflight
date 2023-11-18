@@ -138,17 +138,12 @@ if (projectUsesPostgresql) {
 }
 
 console.log('Running Preflight...');
-const preflightOutput = await executeCommand('preflight', { cwd: projectPath });
 
-if (preflightOutput) {
-  console.log(
-    preflightOutput
-      // node-fetch@3 (dependency in Preflight) uses experimental Node.js
-      // APIs. Until these are no longer experimental, remove the warning
-      // from the output manually.
-      .replace(
-        /\(node:\d+\) ExperimentalWarning: stream\/web is an experimental feature\. This feature could change at any time\n\(Use `node --trace-warnings \.\.\.` to show where the warning was created\)\n/,
-        '',
-      ),
-  );
-}
+const { exitCode } = await execaCommand('preflight', {
+  cwd: projectPath,
+  reject: false,
+  stdout: 'inherit',
+  stderr: 'inherit',
+});
+
+process.exit(exitCode);
