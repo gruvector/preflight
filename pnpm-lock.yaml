@@ -74,8 +74,8 @@ devDependencies:
     specifier: 29.7.0
     version: 29.7.0
   '@size-limit/file':
-    specifier: 10.0.2
-    version: 10.0.2(size-limit@11.0.0)
+    specifier: 11.0.0
+    version: 11.0.0(size-limit@11.0.0)
   '@types/jest':
     specifier: 29.5.8
     version: 29.5.8
@@ -2059,13 +2059,12 @@ packages:
       '@sinonjs/commons': 2.0.0
     dev: true
 
-  /@size-limit/file@10.0.2(size-limit@11.0.0):
-    resolution: {integrity: sha512-27jzgQtER/2WP4+ciLe8aExkceSfqQFSDEbFVhXnbpFvQBqGZ7uEQG9bDX7a5VGxTdMtGwzZndMsCOlinmLzSg==}
+  /@size-limit/file@11.0.0(size-limit@11.0.0):
+    resolution: {integrity: sha512-tTg6sSiFbiogiof3GV4iIRCPS4+46Hvq4QWXGXp00Be/tOnpglXF62xNpCfFwefx9YCXxCyeYSqqaRBjpRCsmQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
-      size-limit: 10.0.2
+      size-limit: 11.0.0
     dependencies:
-      semver: 7.5.4
       size-limit: 11.0.0
     dev: true
 
@@ -3944,7 +3943,7 @@ packages:
       eslint: 8.47.0
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.9.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.47.0)
       eslint-plugin-import: 2.29.0(@typescript-eslint/parser@6.9.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.47.0)
-      fast-glob: 3.3.1
+      fast-glob: 3.3.2
       get-tsconfig: 4.5.0
       is-core-module: 2.13.1
       is-glob: 4.0.3
