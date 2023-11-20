@@ -70,7 +70,7 @@
     "eslint-config-upleveled": "5.1.1",
     "p-map": "6.0.0",
     "postinstall-postinstall": "2.1.0",
-    "size-limit": "10.0.2",
+    "size-limit": "11.0.0",
     "stylelint": "15.11.0",
     "tsdx": "0.14.1",
     "tslib": "2.6.2",
