@@ -7,3 +7,5 @@ __tests__/fixtures/__temp
 docker/clone-and-preflight.js
 
 *.tsbuildinfo
+
+.eslintcache

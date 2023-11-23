@@ -52,13 +52,7 @@ jobs:
         if: runner.os != 'Windows'
         run: pnpm lint
 
-      - run: pnpm tsc
-        if: runner.os != 'Windows'
-      - run: pnpm tsc --project bin/tsconfig.json
-        if: runner.os != 'Windows'
-      - run: pnpm tsc --project docker/tsconfig.json
-        if: runner.os != 'Windows'
-      - run: pnpm tsc --project tsconfig.nonsrc.json
+      - run: pnpm tsc --build
         if: runner.os != 'Windows'
 
       - name: Build
