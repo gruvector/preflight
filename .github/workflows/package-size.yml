@@ -3,6 +3,7 @@ on: [pull_request]
 jobs:
   size:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     env:
       CI_JOB_NUMBER: 1
     steps:
