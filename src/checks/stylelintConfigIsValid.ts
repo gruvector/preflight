@@ -46,7 +46,7 @@ export default async function stylelintConfigIsValid() {
   try {
     stylelintConfigMatches =
       (await fs.readFile('./stylelint.config.mjs', 'utf-8')).trim() ===
-      `/** @type { import('stylelint').Config } */
+      `/** @type {import('stylelint').Config} */
 const config = {
   extends: ['stylelint-config-upleveled'],
 };
