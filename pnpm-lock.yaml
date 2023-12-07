@@ -101,8 +101,8 @@ devDependencies:
     specifier: 7.3.4
     version: 7.3.4(@babel/core@7.23.3)(@types/eslint@8.44.8)(@types/node@20.10.4)(@types/react-dom@18.2.17)(@types/react@18.2.42)(eslint@8.53.0)(globals@13.23.0)(typescript@5.1.6)
   p-map:
-    specifier: 6.0.0
-    version: 6.0.0
+    specifier: 7.0.0
+    version: 7.0.0
   postinstall-postinstall:
     specifier: 2.1.0
     version: 2.1.0
@@ -2216,7 +2216,7 @@ packages:
     resolution: {integrity: sha512-Otsx/+wb9jVG2yMuSNCi4eg8zVoV94LcK44UGwtOrkMjsXFuW14KOqqIbSHAvxYUlG844YQjZmZzFgfEwWuzdA==}
     deprecated: This is a stub types definition. p-map provides its own type definitions, so you do not need this installed.
     dependencies:
-      p-map: 6.0.0
+      p-map: 7.0.0
     dev: true
 
   /@types/parse-json@4.0.0:
@@ -6488,9 +6488,9 @@ packages:
       p-limit: 3.1.0
     dev: true
 
-  /p-map@6.0.0:
-    resolution: {integrity: sha512-T8BatKGY+k5rU+Q/GTYgrEf2r4xRMevAN5mtXc2aPc4rS1j3s+vWTaO2Wag94neXuCAUAs8cxBL9EeB5EA6diw==}
-    engines: {node: '>=16'}
+  /p-map@7.0.0:
+    resolution: {integrity: sha512-EZl03dLKv3RypkrjlevZoNwQMSy4bAblWcR18zhonktnN4fUs3asFQKSe0awn982omGxamvbejqQKQYDJYHCEg==}
+    engines: {node: '>=18'}
     dev: true
 
   /p-reduce@3.0.0:
