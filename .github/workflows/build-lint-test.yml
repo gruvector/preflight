@@ -18,7 +18,7 @@ jobs:
       PGUSERNAME: preflight_test_project_next_js_passing
       PGPASSWORD: preflight_test_project_next_js_passing
     steps:
-      - uses: ikalnytskyi/action-setup-postgres@v4
+      - uses: ikalnytskyi/action-setup-postgres@v5
         with:
           username: ${{ env.PGUSERNAME }}
           password: ${{ env.PGPASSWORD }}
