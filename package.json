@@ -48,14 +48,14 @@
     "depcheck": "1.4.7",
     "domhandler": "5.0.3",
     "execa": "8.0.1",
-    "listr2": "8.0.1",
+    "listr2": "8.0.2",
     "node-fetch": "3.3.2",
     "p-reduce": "3.0.0",
     "patch-package": "8.0.0",
     "prettier": "3.2.4",
     "readdirp": "3.6.0",
     "semver": "7.5.4",
-    "top-user-agents": "2.1.6"
+    "top-user-agents": "2.1.7"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.23.3",
@@ -63,7 +63,7 @@
     "@size-limit/file": "11.0.2",
     "@types/babel__core": "7.20.5",
     "@types/jest": "29.5.11",
-    "@types/node": "20.11.6",
+    "@types/node": "20.11.15",
     "@types/p-map": "2.0.0",
     "@types/semver": "7.5.6",
     "babel-jest": "29.7.0",
@@ -72,7 +72,7 @@
     "p-map": "7.0.1",
     "postinstall-postinstall": "2.1.0",
     "size-limit": "11.0.2",
-    "stylelint": "16.2.0",
+    "stylelint": "16.2.1",
     "tsdx": "0.14.1",
     "tslib": "2.6.2",
     "typescript": "5.3.3"
