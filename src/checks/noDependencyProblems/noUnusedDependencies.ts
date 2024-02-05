@@ -21,7 +21,8 @@ export default async function noUnusedAndMissingDependencies() {
     // Sass (eg. in create-react-app)
     'sass',
 
-    // Prettier plugins
+    // Prettier and plugins
+    'prettier',
     'prettier-plugin-*',
 
     // ESLint configuration
