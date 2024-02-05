@@ -1,6 +1,6 @@
 const CRLF = '\r\n';
 
-export default function normalizeNewline(input: string) {
+export function normalizeNewlines(input: string) {
   if (typeof input !== 'string') {
     throw new TypeError(`Expected a \`string\`, got \`${typeof input}\``);
   }

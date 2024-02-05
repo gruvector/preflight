@@ -2,7 +2,7 @@ import cheerio from 'cheerio';
 import type { Element } from 'domhandler';
 import { execaCommand } from 'execa';
 import fetch from 'node-fetch';
-import randomUserAgent from '../util/randomUserAgent';
+import { randomUserAgent } from '../util/randomUserAgent';
 
 export const title = 'GitHub repo has deployed project link under About';
 

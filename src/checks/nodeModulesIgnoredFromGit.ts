@@ -1,7 +1,7 @@
 import { promises as fs } from 'node:fs';
 import { execaCommand } from 'execa';
-import commandExample from '../util/commandExample';
-import normalizeNewline from '../util/normalizeNewline';
+import { commandExample } from '../util/commandExample';
+import { normalizeNewlines } from '../util/crossPlatform';
 
 export const title = 'node_modules/ folder ignored in Git';
 
@@ -19,7 +19,7 @@ export default async function nodeModulesIgnoredFromGit() {
     throw new Error('.gitignore file not found');
   }
 
-  const nodeModulesInGitignore = normalizeNewline(
+  const nodeModulesInGitignore = normalizeNewlines(
     await fs.readFile('./.gitignore', 'utf8'),
   )
     .split('\n')

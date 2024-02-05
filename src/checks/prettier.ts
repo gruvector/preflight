@@ -1,7 +1,7 @@
 import { dirname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execaCommand } from 'execa';
-import normalizeNewline from '../util/normalizeNewline';
+import { normalizeNewlines } from '../util/crossPlatform';
 
 export const title = 'Prettier';
 
@@ -27,7 +27,7 @@ export default async function prettierCheck() {
       throw error;
     }
 
-    const unformattedFiles = normalizeNewline(stdout)
+    const unformattedFiles = normalizeNewlines(stdout)
       .split('\n')
       // Make paths relative to the project:
       //

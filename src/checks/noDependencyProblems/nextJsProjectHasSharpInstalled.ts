@@ -1,4 +1,4 @@
-import commandExample from '../../util/commandExample';
+import { commandExample } from '../../util/commandExample';
 import { projectPackageJson } from '../../util/packageJson';
 
 export const title = 'Next.js project has sharp installed';

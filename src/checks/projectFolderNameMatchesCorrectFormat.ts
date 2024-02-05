@@ -1,5 +1,5 @@
 import path from 'node:path';
-import commandExample from '../util/commandExample';
+import { commandExample } from '../util/commandExample';
 
 export const title = 'Project folder name matches correct format';
 

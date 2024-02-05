@@ -1,7 +1,7 @@
 import os from 'node:os';
 import { execaCommand } from 'execa';
 import semver from 'semver';
-import commandExample from '../util/commandExample';
+import { commandExample } from '../util/commandExample';
 import { preflightPackageJson } from '../util/packageJson';
 
 export const title = 'Preflight is latest version';

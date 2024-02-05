@@ -1,6 +1,6 @@
 import { execaCommand } from 'execa';
-import commandExample from '../../util/commandExample';
-import preflightBinPath from '../../util/preflightBinPath';
+import { commandExample } from '../../util/commandExample';
+import { preflightBinPath } from '../../util/preflightBinPath';
 
 export const title = 'No unused dependencies';
 

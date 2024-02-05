@@ -1,7 +1,7 @@
 import { existsSync, promises as fs } from 'node:fs';
 import algoliasearch from 'algoliasearch';
 import pReduce from 'p-reduce';
-import commandExample from '../../util/commandExample';
+import { commandExample } from '../../util/commandExample';
 import { projectPackageJson } from '../../util/packageJson';
 
 const client = algoliasearch(
