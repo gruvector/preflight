@@ -9,16 +9,13 @@ export default async function noUnusedAndMissingDependencies() {
     // Unused dependency detected in https://github.com/upleveled/next-portfolio-dev
     '@graphql-codegen/cli',
 
-    // Unused dependency detected in create-react-app
-    '@testing-library/user-event',
-
     // Tailwind CSS
     '@tailwindcss/jit',
     'autoprefixer',
     'postcss',
     'tailwindcss',
 
-    // Sass (eg. in create-react-app)
+    // Sass (eg. in Next.js)
     'sass',
 
     // Prettier and plugins
@@ -26,8 +23,6 @@ export default async function noUnusedAndMissingDependencies() {
     'prettier-plugin-*',
 
     // ESLint configuration
-    'babel-eslint',
-    'eslint-config-next',
     '@ts-safeql/eslint-plugin',
     'libpg-query',
 
@@ -40,13 +35,10 @@ export default async function noUnusedAndMissingDependencies() {
     'stylelint-config-upleveled',
 
     // Testing
-    'babel-jest',
-    'cypress',
+    '@testing-library/user-event',
     'jest',
     'jest-environment-jsdom',
-    'jest-puppeteer',
     'playwright',
-    'puppeteer',
 
     // `expect` required for proper types with `@testing-library/jest-dom` with `@jest/globals` and pnpm
     // https://github.com/testing-library/jest-dom/issues/123#issuecomment-1536828385
@@ -56,6 +48,7 @@ export default async function noUnusedAndMissingDependencies() {
     // TypeScript
     'typescript',
     '@types/*',
+    'tsx',
 
     // Next.js
     'sharp',
