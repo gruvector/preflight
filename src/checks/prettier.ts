@@ -1,5 +1,3 @@
-import { dirname, relative, resolve, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { execaCommand } from 'execa';
 import { normalizeNewlines } from '../util/crossPlatform';
 
@@ -8,45 +6,16 @@ export const title = 'Prettier';
 export default async function prettierCheck() {
   try {
     await execaCommand(
-      `${resolve(
-        dirname(fileURLToPath(import.meta.url)),
-        '..',
-        'node_modules',
-        '.bin',
-      )}/prettier --list-different **/*.{js,jsx,ts,jsx} --end-of-line auto`,
+      'pnpm prettier "**/*.{js,jsx,ts,tsx,css,scss,sql}" --list-different --end-of-line auto',
     );
   } catch (error) {
     const { stdout, stderr } = error as { stdout: string; stderr: string };
 
-    const stderrWithoutPackageJsonWarning = stderr.replace(
-      /warning [/.\\]*package\.json: No license field[\r\n]*/g,
-      '',
-    );
-
-    if (!stdout || stderrWithoutPackageJsonWarning) {
+    if (!stdout || stderr) {
       throw error;
     }
 
-    const unformattedFiles = normalizeNewlines(stdout)
-      .split('\n')
-      // Make paths relative to the project:
-      //
-      // Before:
-      //   macOS / Linux: ../../../../../../projects/random-color-generator-react-app/src/reportWebVitals.js
-      //   Windows: ..\..\..\..\..\..\..\..\..\..\..\projects\random-color-generator-react-app\src\reportWebVitals.js
-      //
-      // After:
-      //   macOS / Linux: src/reportWebVitals.js
-      //   Windows: src\reportWebVitals.js
-      .map((file) => {
-        return file.replace(
-          `${relative(
-            dirname(fileURLToPath(import.meta.url)),
-            process.cwd(),
-          )}${sep}`,
-          '',
-        );
-      });
+    const unformattedFiles = normalizeNewlines(stdout).split('\n');
 
     if (unformattedFiles.length > 0) {
       throw new Error(

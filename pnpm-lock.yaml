@@ -53,9 +53,6 @@ dependencies:
   patch-package:
     specifier: 8.0.0
     version: 8.0.0
-  prettier:
-    specifier: 3.2.4
-    version: 3.2.4
   readdirp:
     specifier: 3.6.0
     version: 3.6.0
@@ -106,6 +103,9 @@ devDependencies:
   postinstall-postinstall:
     specifier: 2.1.0
     version: 2.1.0
+  prettier:
+    specifier: 3.2.4
+    version: 3.2.4
   size-limit:
     specifier: 11.0.2
     version: 11.0.2
@@ -6641,7 +6641,7 @@ packages:
     resolution: {integrity: sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: false
+    dev: true
 
   /pretty-format@25.5.0:
     resolution: {integrity: sha512-kbo/kq2LQ/A/is0PQwsEHM7Ca6//bGPPvU6UnsdDRSKTWxT/ru/xb88v4BJf6a69H+uTytOEsTusT9ksd/1iWQ==}

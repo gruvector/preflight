@@ -1,6 +1,6 @@
 {
   "name": "@upleveled/preflight",
-  "version": "5.1.2",
+  "version": "6.0.0-0",
   "repository": "upleveled/preflight",
   "license": "MIT",
   "author": "UpLeveled (https://github.com/upleveled)",
@@ -52,7 +52,6 @@
     "node-fetch": "3.3.2",
     "p-reduce": "3.0.0",
     "patch-package": "8.0.0",
-    "prettier": "3.2.4",
     "readdirp": "3.6.0",
     "semver": "7.5.4",
     "top-user-agents": "2.1.7"
@@ -71,6 +70,7 @@
     "eslint-config-upleveled": "7.5.0",
     "p-map": "7.0.1",
     "postinstall-postinstall": "2.1.0",
+    "prettier": "3.2.4",
     "size-limit": "11.0.2",
     "stylelint": "16.2.1",
     "tsdx": "0.14.1",
